@@ -22,13 +22,13 @@ association between variables and the occurrence of attraction.
  
 1. συμβουλεύει τῷ Ξενοφῶντι ἐλθόντα εἰς Δελφοὺς ἀνακοινοῶσαι τῷ  θεῷ  περὶ τῆς 
    πορείας.\
-   advice.3sg X.dat.sg going.acc.sg to-Delphi ask.inf  the-god.dat.sg 
+   advice.3SG X.DAT.SG going.ACC.SG to-Delphi ask.INF  the-god.DAT.SG 
    about-the-travel\
    He advices Xenophon to go to Delphi and ask the god about the travel. 
    (Xen. Anab. 3 1 5) 
 1. ἀφῆκε μοι ἐλθόντι πρὸς ὑμᾶς λέγειν τἀληθῆ.\
-   allowed.3sg pron.1sg.dat going.dat.sg in-front-of-you say.inf
-   the-truth.acc.\
+   allowed.3SG PRON.1SG.DAT going.DAT.SG in-front-of-you say.INF
+   the-truth.ACC.\
    He allowed me to go and speak the truth in front of you. (Xen. Hell. 6 1 13)
 
 Expanding on the aforementioned work, this aims to further the analysis of
