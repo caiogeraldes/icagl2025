@@ -1,0 +1,95 @@
+\documentclass[article,a4paper,12pt]{memoir}
+
+\usepackage{fontspec}
+\usepackage{csquotes}
+\usepackage[main=english]{babel}
+\setmainfont{Brill}
+\setmonofont[Scale=0.8]{Noto Sans Mono}
+\usepackage{hyperref}
+
+\usepackage{linguex}
+
+\usepackage[
+  backend=biber,
+  uniquename=init,
+  giveninits,
+  style=authoryear
+  ]{biblatex}
+\addbibresource{./biblio.bib}
+
+
+\title{Case attraction on Ancient Greek Infinitive Clauses}
+\author{Caio B. A. Geraldes}
+
+\begin{document}
+
+\begin{center}
+  {\large\textbf{\thetitle}}\\
+  \bigskip
+  \theauthor\\
+  \bigskip
+\noindent\textbf{Key-words:} syntax; case attraction; quantitative methods
+\end{center}
+  
+Case attraction on infinitive clauses (contrast~\autoref{gloss:noattr}
+with~\autoref{gloss:attr} below) has
+been analysed over the recent years as a idiosyncratic and strictly
+syntactic construction (\cite{Tantalou2003},~\cite{Spyropoulos2005} and 
+\cites{Sevdali2013b}{Sevdali2013}), lacking many parallels across either 
+ancient or modern languages and across other linguistic \emph{phenomena}. 
+Previously (Geraldes 2020), I have tried to show that case attraction is 
+similar in nature and distribution to \emph{agreement / concord}, namely 
+similar to the cases of \emph{non-canonical agreement} and \emph{long 
+distance agreement} (as discussed in~\cite{Corbett2006}), due to its 
+association with semantic and pragmatic features, using a \emph{corpus} 
+comprised of Herodotus, Plato and Xenophon. Effects of authorship, genre and 
+dialect were also identified, with philosophical dialogues and attic presenting
+a higher likelihood to display case attraction. The issues with the
+evidence and analysis made available was the sample size, which limited
+what conclusions could be drawn from the data collected, and the sole
+use of single variate methods to estimate the effects and association
+between variables and the occurrence of attraction, which made it
+impossible to untangle structural linguistic effects from
+extra-linguistic factors.
+
+
+\ex.\ag.\label{gloss:noattr}συμβουλεύει {τῷ Ξενοφῶντι} ἐλθόντα {εἰς Δελφοὺς} ἀνακοινοῶσαι {τῷ θεῷ} {περὶ τῆς πορείας}.\\
+  advice.3SG X.DAT.SG going.ACC.SG to-Delphi ask.INF the-god.DAT.SG
+  about-the-travel\\
+  He advices Xenophon to go to Delphi and ask the god about the travel.
+  (Xen. Anab. 3 1 5)
+\bg.\label{gloss:attr}ἀφῆκε μοι ἐλθόντι {πρὸς ὑμᾶς} λέγειν τἀληθῆ.\\
+  allowed.3SG PRON.1SG.DAT going.DAT.SG in-front-of-you say.INF
+  the-truth.ACC.\\
+  He allowed me to go and speak the truth in front of you. (Xen. Hell. 6
+  1 13)
+
+
+Expanding on the aforementioned work, this aims to further the analysis
+of case attraction of infinitival predicates of Ancient Greek,
+specifically on attic and ionic literary sources. The new \emph{corpus}
+includes oratory, dramatic and historiographic literature from Classical
+Athens and a revised version of the corpus of sentences drawn from
+Herodotus, Plato and Xenophon (published as Geraldes 2021).
+
+The nucleus of this work lies on a new quantitative analysis of the data
+built as to adequately estimate the direct effects of linguistic factors
+(class of main verb and infinitival verb, constituent distance, and
+part-of-speech of the predicates) on the occurrence of case attraction
+accounting also for the interaction between such factors and
+extralinguistic factors such as authorship and genre. This analysis
+relies on the graphical causal analysis (e.g.~\cite{Pearl2009})
+and Bayesian modeling (e.g.~\cite{McElreath2020}), which I argue could 
+enhance the results of data driven linguistic research by including at the 
+quantitative analysis the qualitative knowledge built on the Ancient Greek 
+and general linguistics. This is particularly important as semantic and
+pragmatic features often can only be represented in the data by proxies
+(word classes, constituent distance and word order).
+
+Furthermore, the evidence gathered reinforces the conclusion that case
+attraction was strongly conditioned by the semantic and pragmatic
+features of the sentence.
+
+\printbibliography%
+
+\end{document}
