@@ -14,11 +14,17 @@ linguistic _phenomena_. Previously (Geraldes 2020),
 I have tried to show that case attraction is similar in nature and distribution 
 to _agreement / concord_, namely similar to the cases of 
 _non-canonical agreement_ and _long distance agreement_ (as discussed in 
-Corbett 2006), due to its association with semantic and pragmatic features.
+Corbett 2006), due to its association with semantic and pragmatic features,
+using a _corpus_ comprised of Herodotus, Plato and Xenophon.
+Effects of authorship, genre and dialect were also identified, with
+philosophical dialogues and attic presenting a higher likelihood to display case
+attraction.
 The issues with the evidence and analysis made available was the sample
 size, which limited what conclusions could be drawn from the data collected,
 and the sole use of single variate methods to estimate the effects and
-association between variables and the occurrence of attraction.
+association between variables and the occurrence of attraction, which made it
+impossible to untangle structural linguistic effects from extra-linguistic
+factors.
  
 1. συμβουλεύει τῷ Ξενοφῶντι ἐλθόντα εἰς Δελφοὺς ἀνακοινοῶσαι τῷ  θεῷ  περὶ τῆς 
    πορείας.\
