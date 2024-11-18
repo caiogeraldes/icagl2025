@@ -15,9 +15,9 @@ I have tried to show that case attraction is similar in nature and distribution
 to _agreement / concord_, namely similar to the cases of 
 _non-canonical agreement_ and _long distance agreement_ (as discussed in 
 Corbett 2006), due to its association with semantic and pragmatic features.
-The main issue with the evidence and analysis made available was the sample
+The issues with the evidence and analysis made available was the sample
 size, which limited what conclusions could be drawn from the data collected,
-and the use of just single variate methods to estimate the effects and
+and the sole use of single variate methods to estimate the effects and
 association between variables and the occurrence of attraction.
  
 1. συμβουλεύει τῷ Ξενοφῶντι ἐλθόντα εἰς Δελφοὺς ἀνακοινοῶσαι τῷ  θεῷ  περὶ τῆς 
@@ -32,9 +32,9 @@ association between variables and the occurrence of attraction.
    He allowed me to go and speak the truth in front of you. (Xen. Hell. 6 1 13)
 
 Expanding on the aforementioned work, this aims to further the analysis of
-case attraction of infinitival predicates of on Ancient Greek, specifically on attic 
+case attraction of infinitival predicates of Ancient Greek, specifically on attic 
 and ionic literary sources. The new _corpus_ includes oratory, dramatic and
-historiographic literature from Classical Athens and a reviewed version of the
+historiographic literature from Classical Athens and a revised version of the
 corpus of sentences drawn from Herodotus, Plato and Xenophon (published as
 Geraldes 2021).
 
@@ -45,7 +45,7 @@ the predicates) on the occurrence of case attraction accounting also for the
 interaction between such factors and extralinguistic factors such as 
 authorship and genre.
 This analysis relies on the graphical causal analysis (e.g. Pearl 2009)
-and Bayesian modeling (e.g. McElreath 2020), which I argue that could enhance
+and Bayesian modeling (e.g. McElreath 2020), which I argue could enhance
 the results of data driven linguistic research by including at the
 quantitative analysis the qualitative knowledge built on the Ancient Greek
 and general linguistics. This is particularly important as semantic and
@@ -53,7 +53,7 @@ pragmatic features often can only be represented in the data by proxies (word
 classes, constituent distance and word order).
 
 Furthermore, the evidence gathered reinforces the conclusion that case
-attraction was strongly conditioned on the semantic and pragmatic features of
+attraction was strongly conditioned by the semantic and pragmatic features of
 the sentence.
 
 ## References
