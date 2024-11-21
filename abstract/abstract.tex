@@ -18,7 +18,7 @@
 \addbibresource{./biblio.bib}
 
 
-\title{Case attraction on Ancient Greek Infinitive Clauses}
+\title{Rethinking case attraction on Ancient Greek infinitive clauses}
 \author{Caio B. A. Geraldes}
 
 \begin{document}
@@ -37,58 +37,62 @@ been analysed over the recent years as a idiosyncratic and strictly
 syntactic construction (\cite{Tantalou2003},~\cite{Spyropoulos2005} and 
 \cites{Sevdali2013b}{Sevdali2013}), lacking many parallels across either 
 ancient or modern languages and across other linguistic \emph{phenomena}. 
-Previously (Geraldes 2020), I have tried to show that case attraction is 
-similar in nature and distribution to \emph{agreement / concord}, namely 
-similar to the cases of \emph{non-canonical agreement} and \emph{long 
-distance agreement} (as discussed in~\cite{Corbett2006}), due to its 
-association with semantic and pragmatic features, using a \emph{corpus} 
-comprised of Herodotus, Plato and Xenophon. Effects of authorship, genre and 
-dialect were also identified, with philosophical dialogues and attic presenting
-a higher likelihood to display case attraction. The issues with the
-evidence and analysis made available was the sample size, which limited
-what conclusions could be drawn from the data collected, and the sole
-use of single variate methods to estimate the effects and association
-between variables and the occurrence of attraction, which made it
-impossible to untangle structural linguistic effects from
-extra-linguistic factors.
+In this paper, I offer a new assessment of the process, arguing that case
+attraction is similar in nature and distribution to \emph{agreement / concord},
+namely similar to the cases of \emph{non-canonical agreement} and \emph{long 
+distance agreement} (as discussed in~\cite{Corbett2006}).
 
+\ex.
+\ag.\label{gloss:noattr}συμβουλεύει {τῷ Ξενοφῶντι} ἐλθόντα {εἰς Δελφοὺς}
+    ἀνακοινῶσαι {τῷ θεῷ} {περὶ τῆς πορείας}.\\
+    advice.3SG X.DAT.SG going.ACC.SG to-Delphi ask.INF the-god.DAT.SG
+    about-the-travel\\
+    He advices Xenophon to go to Delphi and ask the god about the travel.
+    (Xen. Anab. 3.1.5)
+\bg.\label{gloss:attr}ἀφῆκε μοι ἐλθόντι {πρὸς ὑμᾶς} λέγειν τἀληθῆ.\\
+    allowed.3SG PRON.1SG.DAT going.DAT.SG in-front-of-you say.INF
+    the-truth.ACC.\\
+    He allowed me to go and speak the truth in front of you. 
+    (Xen.~Hell.~6.1.13)
 
-\ex.\ag.\label{gloss:noattr}συμβουλεύει {τῷ Ξενοφῶντι} ἐλθόντα {εἰς Δελφοὺς} ἀνακοινοῶσαι {τῷ θεῷ} {περὶ τῆς πορείας}.\\
-  advice.3SG X.DAT.SG going.ACC.SG to-Delphi ask.INF the-god.DAT.SG
-  about-the-travel\\
-  He advices Xenophon to go to Delphi and ask the god about the travel.
-  (Xen. Anab. 3 1 5)
-\bg.\label{gloss:attr}ἀφῆκε μοι ἐλθόντι {πρὸς ὑμᾶς} λέγειν τἀληθῆ.\\
-  allowed.3SG PRON.1SG.DAT going.DAT.SG in-front-of-you say.INF
-  the-truth.ACC.\\
-  He allowed me to go and speak the truth in front of you. (Xen. Hell. 6
-  1 13)
+The evidence across natural languages shows that \emph{non-canonical} agreement
+\slash{} concord takes place in a non-deterministic fashion as semantic or
+pragmatic features of the sentence appear more marked, which is similar to the
+contexts associated with case attraction assumed by grammarians as early as
+\textcite{Buttmann1826}, contexts in which some sort of \emph{emphasis} is
+assigned to the target of attraction makes it more likely to be attracted.
+Although the intuition seems to be sound, there is little to no specificity in 
+what is denoted by \emph{emphasis} and the explanation is prone to \emph{ad hoc}
+interpretations.
 
+Using data from literary sources of Classical Greek, including oratory speeches,
+drama, historiography and philosophical dialogues from Attic and Jonic sources,
+I provide a data driven quantitative analysis of the contexts in which case
+attraction is a possible agreement \slash{} concord resolution. The addition of
+Jonic sources is due to the fact that it has been assumed that case attraction is
+more common if not the rule in the Attic dialect
+(e.g.~\cite[\emph{passim.}]{Buttmann1826} and~\cite[\emph{ad loc.}]{Cooper1997}).
+The data has been collected and annotated in a combination of manual and
+computational methods using the Diorisis Ancient Greek
+Corpus~\parencite{TheDiorisisAncientGreekCorpus}.
 
-Expanding on the aforementioned work, this aims to further the analysis
-of case attraction of infinitival predicates of Ancient Greek,
-specifically on attic and ionic literary sources. The new \emph{corpus}
-includes oratory, dramatic and historiographic literature from Classical
-Athens and a revised version of the corpus of sentences drawn from
-Herodotus, Plato and Xenophon (published as Geraldes 2021).
-
-The nucleus of this work lies on a new quantitative analysis of the data
-built as to adequately estimate the direct effects of linguistic factors
-(class of main verb and infinitival verb, constituent distance, and
-part-of-speech of the predicates) on the occurrence of case attraction
-accounting also for the interaction between such factors and
-extralinguistic factors such as authorship and genre. This analysis
-relies on the graphical causal analysis (e.g.~\cite{Pearl2009})
+A quantitative analysis of case attraction requires caution in the
+methodological approach, as semantic and pragmatic features are often latent,
+i.e.\ not explicitly present in the morpho-phonological level, and the use of
+proxies such as word classes, constituent distance and word order may hinder the
+quality of the results and the causal inference built upon them.
+As such, our analysis will rely on the causality analysis (e.g.~\cite{Pearl2009})
 and Bayesian modeling (e.g.~\cite{McElreath2020}), which I argue could 
 enhance the results of data driven linguistic research by including at the 
 quantitative analysis the qualitative knowledge built on the Ancient Greek 
-and general linguistics. This is particularly important as semantic and
-pragmatic features often can only be represented in the data by proxies
-(word classes, constituent distance and word order).
-
-Furthermore, the evidence gathered reinforces the conclusion that case
-attraction was strongly conditioned by the semantic and pragmatic
-features of the sentence.
+and general linguistics.
+The analysis must be thus twofold. Firstly, it assess how the linguistic and
+extralinguistic factors could reasonably be causally linked with case
+attraction, so as to inform the statistical modeling and tell what effects are
+possible to estimate from the data.
+Later, a general linear model is build as to adequately estimate the direct
+effects of semantic and pragmatic factors on case attraction and the
+interactions between linguistic and extralinguistic variables.
 
 \printbibliography%
 
