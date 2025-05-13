@@ -1,5 +1,10 @@
 \documentclass[a4paper, 11pt, article]{memoir}
 
+\setlength{\footmarkwidth}{0em}
+\setlength{\footmarksep}{0em}
+\setlength{\thanksmarkwidth}{0em}
+\setlength{\thanksmarksep}{0em}
+
 \usepackage{fontspec}
 \usepackage[tracking=true]{microtype}
 \usepackage{scalefnt}
@@ -15,6 +20,8 @@
 
 \usepackage{hyperref}
 \usepackage{linguex}
+\setlength{\Exlabelsep}{0.5em}
+\setlength{\SubExleftmargin}{1.5em}
 \usepackage{paralist}
 \usepackage{hyphenat}
 \hyphenation{
@@ -23,6 +30,21 @@
 }
 
 \usepackage[normalem]{ulem}
+\RequirePackage{xcolor}
+\definecolor{green}{RGB}{16,87,87} % rgb(16,87,87)
+\definecolor{red}{RGB}{193, 11, 105} % rgb(193, 11, 105)
+\definecolor{yellow}{RGB}{218,222,104} % rgb(218,222,104)
+\definecolor{pink}{RGB}{243,179,145} % rgb(243,179,145)
+\definecolor{blue}{RGB}{161,184,206} % rgb(161,184,206)
+
+\RequirePackage{hyperref}%
+\hypersetup{%
+	colorlinks=true, % false: boxed links; true: colored links
+	linkcolor=green,  % color of internal links
+	citecolor=green,  % color of links to bibliography
+	filecolor=pink,  % color of file links
+	urlcolor=green,
+}
 
 \usepackage[
   backend=biber,
@@ -48,8 +70,8 @@
   
   \chapter{Introduction} % (fold)
 
-  Case attraction on infinitive clauses (contrast~\autoref{gloss:noattr}
-  with~\autoref{gloss:attr} below) has
+  Case attraction on infinitive clauses (contrast~\ref{gloss:noattr}
+  with~\ref{gloss:attr} below) has
   been analysed over the recent years as a idiosyncratic and strictly
   syntactic construction (\cite{Tantalou2003},~\cite{Spyropoulos2005} and 
   \cites{Sevdali2013b}{Sevdali2013}), lacking many parallels across either 
