@@ -6,6 +6,7 @@
 \setlength{\thanksmarksep}{0em}
 
 \usepackage{fontspec}
+\usepackage{amsmath}
 \usepackage[tracking=true]{microtype}
 \usepackage{scalefnt}
 \usepackage{csquotes}
@@ -65,179 +66,190 @@
 
 \begin{document}
 
-  \maketitle
-
-  
-  \chapter{Introduction} % (fold)
-
-  Case attraction on infinitive clauses (contrast~\ref{gloss:noattr}
-  with~\ref{gloss:attr} below) has
-  been analysed over the recent years as a idiosyncratic and strictly
-  syntactic construction (\cite{Tantalou2003},~\cite{Spyropoulos2005} and 
-  \cites{Sevdali2013b}{Sevdali2013}), lacking many parallels across either 
-  ancient or modern languages and across other linguistic \emph{phenomena}. 
-
-  \ex.
-  \ag.\label{gloss:noattr}συμβουλεύει {τῷ Ξενοφῶντι} ἐλθόντα {εἰς Δελφοὺς}
-      ἀνακοινῶσαι {τῷ θεῷ} {περὶ τῆς πορείας}.\\
-      advice.3SG X.DAT.SG going.ACC.SG to-Delphi ask.INF the-god.DAT.SG
-      about-the-travel\\
-      He advices Xenophon to go to Delphi and ask the god about the travel.
-      (Xen. Anab. 3.1.5)
-  \bg.\label{gloss:attr}ἀφῆκε μοι ἐλθόντι {πρὸς ὑμᾶς} λέγειν τἀληθῆ.\\
-      allowed.3SG PRON.1SG.DAT going.DAT.SG in-front-of-you say.INF
-      the-truth.ACC.\\
-      He allowed me to go and speak the truth in front of you. 
-      (Xen.~Hell.~6.1.13)
-
-  The evidence I have brought forward in previous works
-  (\cites{Geraldes2020,Geraldes2021,Geraldes2025}) shows that, at least in terms
-  of distribution, case attraction does seems to covary with factors associated
-  with distinct semantic\slash{}pragmatic features, namely word\hyp{}order, and
-  semantic and syntactic class of the matrix and infinitival verb.
-
-  The evidence across natural languages shows that \emph{non-canonical} agreement
-  \slash{} concord takes place in a non-deterministic fashion as semantic or
-  pragmatic features of the sentence appear more marked, which is similar to the
-  contexts associated with case attraction assumed by grammarians as early as
-  \textcite{Buttmann1826}, contexts in which some sort of \emph{emphasis} is
-  assigned to the target of attraction makes it more likely to be attracted.
-  Although the intuition seems to be sound, there is little to no specificity in 
-  what is denoted by \emph{emphasis} and the explanation is prone to \emph{ad hoc}
-  interpretations.
+\maketitle
 
 
-  % chapter Introduction (end)  
+\chapter{Introduction} % (fold)
 
-  \chapter{A stoachastic approach} % (fold)
-  
-  Using data from literary sources of Classical Greek, including oratory speeches,
-  drama, historiography and philosophical dialogues from Attic and Jonic sources,
-  I provide a data driven quantitative analysis of the contexts in which case
-  attraction is a possible agreement \slash{} concord resolution. The addition of
-  Jonic sources is due to the fact that it has been assumed that case attraction is
-  more common if not the rule in the Attic dialect
-  (e.g.~\cite[\emph{passim.}]{Buttmann1826} and~\cite[\emph{ad loc.}]{Cooper1997}).
-  The data has been collected and annotated in a combination of manual and
-  computational methods using the Diorisis Ancient Greek
-  Corpus~\parencite{TheDiorisisAncientGreekCorpus}.
+The variation of constructions with \ref{gloss:attr} and without
+\ref{gloss:noattr} case attraction on arguments of infinitive clauses in Ancient
+Greek remains largely unexplained.
+The more philological driven efforts have only tentatively drawn contexts
+in which a certain option is more likely to occur, a handful of times
+assuming that such correlation between context and resolution was causal, often
+due to an abstract concept of \emph{emphasis}, without any empirical evidence.
+Other works have simply asserted its existence.
+I would enroll my own works (\cite{Geraldes2020,Geraldes2021,Geraldes2025}) in
+the first group, as I mainly argued for a more precise system of correlations,
+providing quantitative evidence for such.
 
-  A quantitative analysis of case attraction requires caution in the
-  methodological approach, as semantic and pragmatic features are often latent,
-  i.e.\ not explicitly present in the morpho-phonological level, and the use of
-  proxies such as word classes, constituent distance and word order may hinder the
-  quality of the results and the causal inference built upon them.
-  As such, our analysis will rely on the causality analysis (e.g.~\cite{Pearl2009})
-  and Bayesian modeling (e.g.~\cite{McElreath2020}), which I argue could 
-  enhance the results of data driven linguistic research by including at the 
-  quantitative analysis the qualitative knowledge built on the Ancient Greek 
-  and general linguistics.
-  The analysis must be thus twofold. Firstly, it assess how the linguistic and
-  extralinguistic factors could reasonably be causally linked with case
-  attraction, so as to inform the statistical modeling and tell what effects are
-  possible to estimate from the data.
-  Later, a general linear model is build as to adequately estimate the direct
-  effects of semantic and pragmatic factors on case attraction and the
-  interactions between linguistic and extralinguistic variables.
-  
-
-  % chapter A stoachastic approach (end)
-
-  \chapter{A causal model for case attraction} % (fold)
-
-  Case attraction consists in a covariance of a specific morphological feature
-  (case) between a controller (the oblique argument of a certain matrix verb)
-  and a target (the predicative or attributive expression modifying the logical
-  subject of the infinitive verb). Thus, it falls into the general concept of
-  \emph{agreement}, in Corbett's framework (\citeyear[4--7]{Corbett2006}).
-
-  By \emph{agreement}, we mean the general class of phenomena by which
-  morphological features covary across a pair of tokens with a particular
-  direction, i.e.:\ in which there are a controller and a target. Even there are
-  indeed, as~\textcite{Norris2014,Norris2017b,Polinsky2016} argue, different mechanisms
-  behind subject-verb agreement, DP-internal concord, and predicate case
-  concord -- being case attraction an instance of the last one --, our use of
-  Corbett's framework will remain unaltered, as the differences observed between
-  DP-internal concord and subject-verb agreement in the authors defending the
-  contrasts are irrelevant for our analysis.
-
-  
-  
-  By assuming that case attraction ($A$) is a sort of \emph{non\hyp{}canonical
-  agreement/concord}, it must be expected that factors known
-  cross\hyp{}linguistically to trigger these \emph{phenomena} also affect $A$.
-  Drawing a list of conditioning factors for \emph{non-canonical agreement} from
-  \textcite[176--205]{Corbett2006}, we should thus expect that the following
-  factors would change the likelihood of $A$.
-  \begin{inparaenum}
-    \item thematic role (Θ) and animacy ($An$);
-    \item grammatical relation ($GR$) and case ($K$); and
-    \item communicative function ($CF$), and precedence ($Prec$).
-  \end{inparaenum}
-
-  % chapter A causal model for case attraction (end)
+\ex.
+\ag.\label{gloss:attr}ἀφῆκε μοι ἐλθόντι {πρὸς ὑμᾶς} λέγειν τἀληθῆ.\\
+allowed.3SG PRON.1SG.DAT going.DAT.SG in-front-of-you say.INF
+the-truth.ACC.\\
+He allowed me to go and speak the truth in front of you.
+(Xen.~Hell.~6.1.13)
+\bg.\label{gloss:noattr}συμβουλεύει {τῷ Ξενοφῶντι} ἐλθόντα {εἰς Δελφοὺς}
+ἀνακοινῶσαι {τῷ θεῷ} {περὶ τῆς πορείας}.\\
+advice.3SG X.DAT.SG going.ACC.SG to-Delphi ask.INF the-god.DAT.SG
+about-the-travel\\
+He advices Xenophon to go to Delphi and ask the god about the travel.
+(Xen. Anab. 3.1.5)
 
 
-  \renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
-  \printbibliography%
-  \renewcommand*{\mkbibnamefamily}[1]{#1}
+A third group, that of structurally driven works, most often from the generative or
+minimalist framework, has proposed structures that would allow the attraction
+to occur, in just a handful of them proposing a specific structure that would
+allow for the non\hyp{}attraction.
+Most recently, \textcite{Sevdali2013,Sevdali2013b} (drawing part of their
+analysis from the works of~\cite{Tantalou2003} and~\cite{Spyropoulos2005})
+argued that case attraction, or \emph{case transmission} as they call, is as a
+byproduct of the syntactic marking of $[{Person}]$ in a otherwise
+\emph{person}-deficient clause, i.e.\ infinitive clauses.
+In other words, they assume the existence of a deficient Person head projected
+over the infinitive verb with a caseless \textsc{pro}, which therefore would
+probe for case until if finds the oblique object of the matrix clause, and
+finally provides case for its predicate when it probes for case.
+The existence of~\ref{gloss:noattr} is explained by an optional accusative
+\emph{pro} acting as subject for the infinitival clause which the author
+argues is available in Ancient Greek when it refers to an element ``prominent in
+the discourse but not present in the clause that immediately contains the
+infinitive'' (\cite[42--3]{Sevdali2013}).
+Similarly to the ``emphasis'' explanation, however, the ``discourse
+prominence'' does not comes with empirical evidence or clear definition.
 
-  \begin{appendices}
-  \chapter{Criteria for Canonical Agreement}
 
-  The following list summarizes the criteria for canonical agreement as
-  discussed in section 1.4 of~\textcite[pp.\ 8ff.]{Corbett2006}.
-  The underlines indicate what position in the hierarchy case attraction
-  arguably occupies.
+% chapter Introduction (end)  
 
-  \begin{compactitem}
-    \item Controllers:
-      \begin{compactitem}
-        \item C-1: \uline{controller present} > controller absent
-        \item C-2: \uline{controller has overt expression of agreement features}
-          > controller has covert expression of agreement features
-          \begin{compactitem}
-            \item ``A canonical controller marks at least as many distinctions
-              as the target''
-          \end{compactitem}
-        \item C-3: consistent controller > \uline{hybrid controller}
-        \item C-4: \uline{controller's part of speech is irrelevant} > is
-          relevant (given the domain)
-      \end{compactitem}
-    \item Targets:
-      \begin{compactitem}
-        \item C-5: \uline{inflectional marking (affix)} > clitic > free word
-        \item C-6: obligatory > \uline{optional}
-        \item C-7: \uline{regular} > suppletive
-        \item C-8: alliterative > \uline{opaque}
-        \item C-9: \uline{productive marking of agreement} > sporadic marking 
-        \item C-10: \uline{target always agree} > target agrees only when
-          controller is absent
-        \item C-11: target agrees with a single controller > agrees with more than
-          one controller
-        \item C-12: target has no choice of controller > \uline{target has choice
-          of controller (is `trigger-happy')}
-        \item C-13: target's part of speech is irrelevant > \uline{is relevant
-          (given the domain)}
-      \end{compactitem}
-    \item Domains:
-      \begin{compactitem}
-        \item C-14: \uline{asymmetric} > symmetric
-        \item C-15: local domain > \uline{non-local domain}
-        \item C-16: domain is one of a set > single domain
-      \end{compactitem}
-    \item Features:
-      \begin{compactitem}
-        \item C-17: feature is lexical > \uline{non-lexical}
-        \item C-18: features have matching values > non-matching values
-        \item C-19: no choice of feature value > \uline{choice of value}
-      \end{compactitem}
-    \item Conditions:
-      \begin{compactitem}
-        \item C-20: no conditions > conditions
-      \end{compactitem}
-      
-  \end{compactitem}
-  \end{appendices}
+\chapter{A stoachastic approach} % (fold)
+
+Using data from literary sources of Classical Greek, including oratory speeches,
+drama, historiography and philosophical dialogues from Attic and Jonic sources,
+I provide a data driven quantitative analysis of the contexts in which case
+attraction is a possible agreement \slash{} concord resolution. The addition of
+Jonic sources is due to the fact that it has been assumed that case attraction is
+more common if not the rule in the Attic dialect
+(e.g.~\cite[\emph{passim.}]{Buttmann1826} and~\cite[\emph{ad loc.}]{Cooper1997}).
+The data has been collected and annotated in a combination of manual and
+computational methods using the Diorisis Ancient Greek
+Corpus~\parencite{TheDiorisisAncientGreekCorpus}.
+
+A quantitative analysis of case attraction requires caution in the
+methodological approach, as semantic and pragmatic features are often latent,
+i.e.\ not explicitly present in the morpho-phonological level, and the use of
+proxies such as word classes, constituent distance and word order may hinder the
+quality of the results and the causal inference built upon them.
+As such, our analysis will rely on the causality analysis (e.g.~\cite{Pearl2009})
+and Bayesian modeling (e.g.~\cite{McElreath2020}), which I argue could
+enhance the results of data driven linguistic research by including at the
+quantitative analysis the qualitative knowledge built on the Ancient Greek
+and general linguistics.
+The analysis must be thus twofold. Firstly, it assess how the linguistic and
+extralinguistic factors could reasonably be causally linked with case
+attraction, so as to inform the statistical modeling and tell what effects are
+possible to estimate from the data.
+Later, a general linear model is build as to adequately estimate the direct
+effects of semantic and pragmatic factors on case attraction and the
+interactions between linguistic and extralinguistic variables.
+
+
+% chapter A stoachastic approach (end)
+
+\chapter{A causal model for case attraction} % (fold)
+
+Case attraction consists in a covariance of a specific morphological feature
+(case) between a controller (the oblique argument of a certain matrix verb)
+and a target (the predicative or attributive expression modifying the logical
+subject of the infinitive verb). Thus, it falls into the general concept of
+\emph{agreement}, in Corbett's framework (\citeyear[4--7]{Corbett2006}).
+
+By \emph{agreement}, we mean the general class of phenomena by which
+morphological features covary across a pair of tokens with a particular
+direction, i.e.:\ in which there are a controller and a target. Even there are
+indeed, as~\textcite{Norris2014,Norris2017b,Polinsky2016} argue, different mechanisms
+behind subject-verb agreement, DP-internal concord, and predicate case
+concord -- being case attraction an instance of the last one --, our use of
+Corbett's framework will remain unaltered, as the differences observed between
+DP-internal concord and subject-verb agreement in the authors defending the
+contrasts are irrelevant for our analysis.
+
+
+
+By assuming that case attraction ($A$) is a sort of \emph{non\hyp{}canonical
+	agreement/concord}, it must be expected that factors known
+cross\hyp{}linguistically to trigger these \emph{phenomena} also affect $A$.
+Drawing a list of conditioning factors for \emph{non-canonical agreement} from
+\textcite[176--205]{Corbett2006}, we should thus expect that the following
+factors would change the likelihood of $A$.
+\begin{inparaenum}
+	\item thematic role (Θ) and animacy ($An$);
+	\item grammatical relation ($GR$) and case ($K$); and
+	\item communicative function ($CF$), and precedence ($Prec$).
+\end{inparaenum}
+
+% chapter A causal model for case attraction (end)
+
+
+\renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
+\printbibliography%
+\renewcommand*{\mkbibnamefamily}[1]{#1}
+
+\begin{appendices}
+	\chapter{Criteria for Canonical Agreement}
+
+	The following list summarizes the criteria for canonical agreement as
+	discussed in section 1.4 of~\textcite[pp.\ 8ff.]{Corbett2006}.
+	The underlines indicate what position in the hierarchy case attraction
+	arguably occupies.
+
+	\begin{compactitem}
+		\item Controllers:
+		\begin{compactitem}
+			\item C-1: \uline{controller present} > controller absent
+			\item C-2: \uline{controller has overt expression of agreement features}
+			> controller has covert expression of agreement features
+			\begin{compactitem}
+				\item ``A canonical controller marks at least as many distinctions
+				as the target''
+			\end{compactitem}
+			\item C-3: consistent controller > \uline{hybrid controller}
+			\item C-4: \uline{controller's part of speech is irrelevant} > is
+			relevant (given the domain)
+		\end{compactitem}
+		\item Targets:
+		\begin{compactitem}
+			\item C-5: \uline{inflectional marking (affix)} > clitic > free word
+			\item C-6: obligatory > \uline{optional}
+			\item C-7: \uline{regular} > suppletive
+			\item C-8: alliterative > \uline{opaque}
+			\item C-9: \uline{productive marking of agreement} > sporadic marking
+			\item C-10: \uline{target always agree} > target agrees only when
+			controller is absent
+			\item C-11: target agrees with a single controller > agrees with more than
+			one controller
+			\item C-12: target has no choice of controller > \uline{target has choice
+				of controller (is `trigger-happy')}
+			\item C-13: target's part of speech is irrelevant > \uline{is relevant
+				(given the domain)}
+		\end{compactitem}
+		\item Domains:
+		\begin{compactitem}
+			\item C-14: \uline{asymmetric} > symmetric
+			\item C-15: local domain > \uline{non-local domain}
+			\item C-16: domain is one of a set > single domain
+		\end{compactitem}
+		\item Features:
+		\begin{compactitem}
+			\item C-17: feature is lexical > \uline{non-lexical}
+			\item C-18: features have matching values > non-matching values
+			\item C-19: no choice of feature value > \uline{choice of value}
+		\end{compactitem}
+		\item Conditions:
+		\begin{compactitem}
+			\item C-20: no conditions > conditions
+		\end{compactitem}
+
+	\end{compactitem}
+\end{appendices}
 
 \end{document}
