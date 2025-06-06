@@ -1,4 +1,4 @@
-\documentclass[a4paper, 11pt, article]{memoir}
+\documentclass[a4paper, 12pt, article]{memoir}
 
 \setlength{\footmarkwidth}{0em}
 \setlength{\footmarksep}{0em}
@@ -16,7 +16,7 @@
 \setmonofont[Scale=0.8]{Noto Sans}
 
 \babelprovide[import, onchar=ids fonts letters]{ancientgreek}
-\babelfont[ancientgreek]{rm}{Brill}
+% \babelfont[ancientgreek]{rm}{Brill}
 \babeltags{grc = ancientgreek}
 
 \usepackage{hyperref}
@@ -73,57 +73,146 @@
 
 \chapter{Introduction} % (fold)
 
-The variation of constructions with~\ref{gloss:attr} and
-without~\ref{gloss:noattr} case attraction on arguments of infinitive clauses in
-Ancient Greek remains largely unexplained.
-The more philological driven efforts have only tentatively drawn contexts
-in which a certain option is more likely to occur, a handful of times
-assuming that such correlation between context and resolution was causal, often
-due to an abstract concept of \emph{emphasis}, without any empirical evidence.
-Other works have simply asserted its existence.
-I would enroll my own works (\cite{Geraldes2020,Geraldes2021,Geraldes2025}) in
-the first group, as I mainly argued for a more precise system of correlations,
-providing quantitative evidence for such.
+Nominal predicates and adjuncts modifying subjects of complement infinitive
+clauses in Ancient Greek (AG) usually agree in case with their domain local
+subject, which has morphological accusative case assigned in the
+\emph{Accusativus cum Infinitivo} (\emph{AcI}) construction,e.g.~\ref{gloss:AcI}.
+The same occurs when the subject is not overtly expressed,
+e.g.~\ref{gloss:EAcI}.
+
+
+\ex.\a.\label{gloss:AcI}ἐγὼ οὖν, ὦ Πρωταγόρα, εἰς ταῦτα ἀποβλέπων οὐχ ἡγοῦμαι
+\textbf{διδακτὸν} εἶναι \textbf{ἀρετήν}\\
+I therefore, Protagoras, in view of such, do not believe virtue to be
+teachable. (Plat.\ \emph{Prot.} 320b)
+\b.\label{gloss:EAcI}ἀλλʼ ἔμοιγε, ἔφη, ὦ Σώκρατες, \textbf{διδακτὸν} εἶναι δοκεῖ.\\
+For my part, Socrates, he said, I think [wisdom] it is teachable. (Plat.\
+\emph{Euthyd.} 282c)
+
+This type of agreement is the default in AG infinitive clauses and seemingly
+applies all the general rules of predicate and adjunct concord in local domains
+in AG\@.
+
+However, when the subject of complement the infinitive is empty and refers to
+the same discourse entity expressed by a constituent of the matrix clause, other
+agreement resolutions occur.
+When the subject of the infinitive is the same as that of the matrix clause, the
+predicate or adjunct displays the nominative case agreeing in
+case with the constituent of the non-local
+domain,e.g.~\ref{gloss:NcI}.
+This agreement does not seem to be optional, as there is little to no evidence
+of sentences with the modifier in any case other than nominative.
+
+\ex.\label{gloss:NcI}\ldots{} ὡς \textbf{ἐγὼ} μὲν οὐχ ὁμολογήσω \textbf{ἄκλητος}
+ἥκειν, ἀλλ' ὑπὸ σοῦ \emph{κεκλημένος}.\\
+\ldots{} for I shall not admit that I came unasked, but only on your invitation.
+(Plat.\ \emph{Symp.} 174c)
+
+
+When other constituents besides the matrix' subject ``fight'' for the control of
+the modifier, so to speak, a couple of exceptions surface. If there is an
+emphatic pronoun \emph{in} the infinitive clause, it takes accusative and it's
+modifiers agree with it,~\ref{gloss:eme}.
+
+\ex.\label{gloss:eme}ταῦτ᾽ οὖν πάνυ μὲν οὖν οὐκ οἴομαι οὕτως ἔχειν, ἀλλ᾽
+\textbf{ἐμὲ φαῦλον} εἶναι \textbf{ζητητήν}\\
+Now I really do not think that this can be the case, but rather that I am a
+poor hand at inquiring. (Plat.\ \emph{Charm.} 175e)
+
+
+The other exception is restricted to an idiosyncratic personal construction of
+the verb δοκέω, in which the subject and indirect object both refer to the same
+entity, on which both the subject's nominative and object's dative are available
+for agreement,~\ref{gloss:dokomoi}.
+The accusative case is never attested --- but bear in mind that this
+construction is rarely attested overall, so that this lack of attestation may be
+accidental.
+
+\ex.\label{gloss:dokomoi}\a.δοκῶ γάρ \textbf{μοι ἀδύνατος} εἶναι\\
+For I believe myself to be incapable. (Plat.\ \emph{Resp.} 368b)
+\b.\label{gloss:protoattr}ὅμοιος ἄν \textbf{μοι} δοκῶ εἶναι \textbf{τῷ περιιόντι
+	ἰατρῷ καὶ ἐπισκοποῦντι} τοὺς κάμνοντας, \textbf{εἰδότι} δὲ οὐδὲν ὅ τι συμφέρει
+τοῖς κάμνουσιν.\\
+I think I should be like that doctor who goes round visiting the sick, but has
+no knowledge of the right way to treat them. (Xen.\ \emph{Econ.} 15.9)
+
+
+The examples~\ref{gloss:NcI} and~\ref{gloss:dokomoi},
+particularly~\ref{gloss:protoattr}, may be called \emph{case attraction}, but
+the term is usually reserved to the next type of case concord pattern.
+When the subject of the complement infinitive refers to the same entity as an
+oblique argument of the matrix clause, its predicates or adjuncts may either
+bear accusative,~\ref{gloss:noattr}, or agree in case with their
+co\hyp{}referential controller,~\ref{gloss:attr}, the latter being what is
+generally called \emph{case attraction}.
+
 
 \ex.
-\ag.\label{gloss:attr}ἀφῆκε μοι ἐλθόντι {πρὸς ὑμᾶς} λέγειν τἀληθῆ.\\
-allowed.3SG PRON.1SG.DAT going.DAT.SG in-front-of-you say.INF
-the-truth.ACC.\\
-He allowed me to go and speak the truth in front of you.
-(Xen.~Hell.~6.1.13)
-\bg.\label{gloss:noattr}συμβουλεύει {τῷ Ξενοφῶντι} ἐλθόντα {εἰς Δελφοὺς}
+\a.\label{gloss:noattr}συμβουλεύει \textbf{τῷ Ξενοφῶντι ἐλθόντα} {εἰς Δελφοὺς}
 ἀνακοινῶσαι {τῷ θεῷ} {περὶ τῆς πορείας}.\\
-advice.3SG X.DAT.SG going.ACC.SG to-Delphi ask.INF the-god.DAT.SG
-about-the-travel\\
 He advices Xenophon to go to Delphi and ask the god about the travel.
-(Xen. Anab. 3.1.5)
+(Xen.\ \emph{Anab.} 3.1.5)
+\b.\label{gloss:attr}ἀφῆκε \textbf{μοι ἐλθόντι} {πρὸς ὑμᾶς} λέγειν τἀληθῆ.\\
+He allowed me to go and speak the truth in front of you.
+(Xen.\ \emph{Hell.} 6.1.13)
 
 
-A third group, that of structurally driven works, most often from the generative
-or minimalist framework, has proposed structures that would allow the attraction
-to occur, in just a handful of them proposing a specific structure that would
-allow for the non\hyp{}attraction. Most recently,
-\textcite{Sevdali2013,Sevdali2013b} (drawing part of their analysis from the
-works of~\cite{Tantalou2003} and~\cite{Spyropoulos2005}) argued that case
-attraction, or \emph{case transmission} as they call, is as a byproduct of the
-syntactic marking of $[{Person}]$ in a otherwise \emph{person}-deficient clause,
-i.e.\ infinitive clauses. In other words, they assume the existence of a
-deficient Person head projected over the infinitive verb with a caseless
-\textsc{pro}, which therefore would probe for case until if finds the oblique
-object of the matrix clause, and finally provides case for its predicate when it
-probes for case. The existence of~\ref{gloss:noattr} is explained by means of an
-optional accusative \emph{pro} acting as subject for the infinitival clause and
-which the author argues that is available in Ancient Greek when the subject of
-infinitives refers to an element ``prominent in the discourse but not present in
-the clause that immediately contains the infinitive''
-(\cite[42--3]{Sevdali2013}). Similarly to the ``emphasis'' explanation, however,
-the ``discourse prominence'' does not comes with empirical evidence or clear
+By naming it as \emph{case attraction}, grammarians and philologists have
+assumed, since~\textcite{Lancelot1658,Lancelot1709} extended the term used
+by~\textcite{Sanchez1587} for case attraction of relative pronouns,
+that~\ref{gloss:attr} is some type of deviation from the general rule
+of agreement\slash{}concord in AG (and Classical Latin, for that matter).
+Since then, however, the cause for the variation of constructions with~\ref{gloss:attr} and
+without~\ref{gloss:noattr} case attraction remained largely unexplained.
+Authors have only tentatively drawn contexts in which a certain option is more
+likely to occur, a handful of times assuming that such correlation between
+context and resolution was causal, often due to \emph{emphasis} and
+\emph{focus}, without any empirical evidence for the relation between
+\emph{emphasis} and attraction.\footnote{%
+	\textcite[462]{Buttmann1826},~\textcite{Hocheder1833},~\textcite[II pp.\
+		24ff.]{KG},~\textcite[774]{Cooper1997},
+	and~\textcite[2500--1]{Cooper2002}.
+}
+Other works have simply asserted its existence.\footnote{
+	\textcite[203]{Goodwin1900},
+	\textcite[643]{Stahl1907},
+	\textcite[II p.\ 368]{Schwyzer1950},
+	\textcite[p.\ 278, p.\ 440]{Smyth1956},
+	\textcite[105]{Rijksbaron2002},
+	\textcite{Napoli2014},
+	\textcite[587]{Boas2019}.
+}
+% I would enroll my own works (\cite{Geraldes2020,Geraldes2021,Geraldes2025}) in
+% the first group, as I mainly argued for a more precise system of correlations,
+% providing quantitative evidence for such.
+
+When it came the time for general linguists to analyse AG case agreement
+patterns shown in the previous examples, their approach was rather
+different, as they bundled together what a philologist would call ``normal''
+case agreement and case attraction.
+Since~\textcite{Lakoff1970,Andrews1971,Quicoli1982}, the works dealing with AG
+case agreement patterns have been trying to provide a structural explanation for
+\emph{how} non-local case concord is configured in the syntax.
+Most recently, \textcite{Sevdali2013,Sevdali2013b} (drawing part of their
+analysis from the works of~\cite{Tantalou2003} and~\cite{Spyropoulos2005})
+argued that AG infinitive clauses may valuate their Person head locally or
+externally.
+For them to be locally evaluated, a ``discourse prominent'' element, not present
+in the infinitive clause, must be supplied in the form of an optional accusative
+\emph{pro}, which would be the case of~\ref{gloss:noattr} sentences.
+Otherwise, the caseless \textsc{pro} would probe for case until it got it from
+the matrix constituent which controls it, thus the case agreement
+in~\ref{gloss:attr} would surface.
+The cause for case attraction, under this model, would be the lack of a
+``discourse prominent'' element available to be represented by an accusative
+\emph{pro} in the infinitive clause.
+Similarly to the philologists' ``emphasis'' explanation, however, the
+``discourse prominence'' does not comes with empirical evidence or clear
 definition.
-
 
 % chapter Introduction (end)  
 
-\chapter{A stoachastic approach} % (fold)
+\chapter{A stochastic approach} % (fold)
 
 Using data from literary sources of Classical Greek, including oratory speeches,
 drama, historiography and philosophical dialogues from Attic and Jonic sources,
@@ -204,53 +293,56 @@ factors would change the likelihood of $A$.
 	The underlines indicate what position in the hierarchy case attraction
 	arguably occupies.
 
-	\begin{compactitem}
-		\item Controllers:
+	\begin{raggedright}
+
 		\begin{compactitem}
-			\item C-1: \uline{controller present} > controller absent
-			\item C-2: \uline{controller has overt expression of agreement features}
-			> controller has covert expression of agreement features
+			\item Controllers:
 			\begin{compactitem}
-				\item ``A canonical controller marks at least as many distinctions
-				as the target''
+				\item C-1: \uline{controller present} > controllergabsent
+				\item C-2: \uline{controller has overt expression of agreement features}
+				> controller has covert expression of agreement features
+				\begin{compactitem}
+					\item ``A canonical controller marks at least as many distinctions
+					as the target''
+				\end{compactitem}
+				\item C-3: consistent controller > \uline{hybrid controller}
+				\item C-4: \uline{controller's part of speech is irrelevant} > is
+				relevant (given the domain)
 			\end{compactitem}
-			\item C-3: consistent controller > \uline{hybrid controller}
-			\item C-4: \uline{controller's part of speech is irrelevant} > is
-			relevant (given the domain)
+			\item Targets:
+			\begin{compactitem}
+				\item C-5: \uline{inflectional marking (affix)} > clitic > free word
+				\item C-6: obligatory > \uline{optional}
+				\item C-7: \uline{regular} > suppletive
+				\item C-8: alliterative > \uline{opaque}
+				\item C-9: \uline{productive marking of agreement} > sporadic marking
+				\item C-10: \uline{target always agree} > target agrees only when
+				controller is absent
+				\item C-11: target agrees with a single controller > agrees with more than
+				one controller
+				\item C-12: target has no choice of controller > \uline{target has choice
+					of controller (is `trigger-happy')}
+				\item C-13: target's part of speech is irrelevant > \uline{is relevant
+					(given the domain)}
+			\end{compactitem}
+			\item Domains:
+			\begin{compactitem}
+				\item C-14: \uline{asymmetric} > symmetric
+				\item C-15: local domain > \uline{non-local domain}
+				\item C-16: domain is one of a set > single domain
+			\end{compactitem}
+			\item Features:
+			\begin{compactitem}
+				\item C-17: feature is lexical > \uline{non-lexical}
+				\item C-18: features have matching values > non-matching values
+				\item C-19: no choice of feature value > \uline{choice of value}
+			\end{compactitem}
+			\item Conditions:
+			\begin{compactitem}
+				\item C-20: no conditions > conditions
+			\end{compactitem}
 		\end{compactitem}
-		\item Targets:
-		\begin{compactitem}
-			\item C-5: \uline{inflectional marking (affix)} > clitic > free word
-			\item C-6: obligatory > \uline{optional}
-			\item C-7: \uline{regular} > suppletive
-			\item C-8: alliterative > \uline{opaque}
-			\item C-9: \uline{productive marking of agreement} > sporadic marking
-			\item C-10: \uline{target always agree} > target agrees only when
-			controller is absent
-			\item C-11: target agrees with a single controller > agrees with more than
-			one controller
-			\item C-12: target has no choice of controller > \uline{target has choice
-				of controller (is `trigger-happy')}
-			\item C-13: target's part of speech is irrelevant > \uline{is relevant
-				(given the domain)}
-		\end{compactitem}
-		\item Domains:
-		\begin{compactitem}
-			\item C-14: \uline{asymmetric} > symmetric
-			\item C-15: local domain > \uline{non-local domain}
-			\item C-16: domain is one of a set > single domain
-		\end{compactitem}
-		\item Features:
-		\begin{compactitem}
-			\item C-17: feature is lexical > \uline{non-lexical}
-			\item C-18: features have matching values > non-matching values
-			\item C-19: no choice of feature value > \uline{choice of value}
-		\end{compactitem}
-		\item Conditions:
-		\begin{compactitem}
-			\item C-20: no conditions > conditions
-		\end{compactitem}
-	\end{compactitem}
+	\end{raggedright}
 \end{appendices}
 
 \end{document}

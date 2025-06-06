@@ -5,10 +5,10 @@
 # according to the choices made in fileExtensionPreference
 # Other file extensions can be added.
 fileExtensionPreference:
-  .tex: 1
-  .sty: 2
-  .cls: 3
-  .bib: 4
+    .tex: 1
+    .sty: 2
+    .cls: 3
+    .bib: 4
 
 # default file extension of backup file (if -w switch is active)
 # for example, if your .tex file is called
