@@ -12,6 +12,8 @@
 \usepackage{csquotes}
 \usepackage[main=english]{babel}
 
+\usepackage{graphicx}
+
 \setmainfont{Gentium Plus}
 \setmonofont[Scale=0.8]{Noto Sans}
 
@@ -101,8 +103,9 @@ resolution to be at the very least more likely.
 
 \paragraph{[Introductingly]}
 I wasn't, however, quite convinced about neither the methods, data, and, most of
-all, quality of the results I arrived at. So this will be a more rigorous
-tentative to approach the problem.
+all, quality of the results I arrived at.
+The reasons for such distrust will become clearer later.
+So this will be a more rigorous tentative to approach the problem.
 
 The aim of this paper is to walk through the assumptions present in my own and
 other's assessments of the phenomenon, as I believe most of them are in
@@ -111,13 +114,32 @@ of this system is left unexplained with what we do know and, more importantly, I
 believe, what we \textbf{can} know and measure about ancient languages in
 general.
 
+
+\chapter{The data}\label{chap:the_data} % (fold)
+
+Before stepping into the framework and analysis proper, a brief word on the
+empirical data supporting this research and any conclusion coming from it.
+The dataset is composed of 343 sentences drawn from the Attic literary
+\emph{corpus} and Herodotus.
+The sentences were extracted from the Diorisis Corpus
+(\cite{TheDiorisisAncientGreekCorpus,diorisis2021}) with help of the project's
+querying tool, Diorisis Search (\cite{DiorisisSearch}).
+Although comprehensive, the selection is by no means exhaustive.
+
+Each sentence has been annotated for values of interest, including authorship,
+literary genre, dialect as well as class of matrix and infinitive verb, class of
+controller and target, distance between constituents, etc.
+Parts of the annotation processes were conducted programmatically and later
+checked manually.
+
+% chapter The data (end)
+
 \chapter{Nature of attraction}\label{chap:nature_of_attraction} % (fold)
 
 In the most abstract way possible, case attraction in infinitive clauses,
 exemplified by~\ref{gloss:attr}, is when two constituents, a controller and a
 target, produced in different domains of a sentence, one of the domains
 encompassing the other, covary in an specific feature, namely $[Case]$.
-
 This satisfies the definition of agreement in Corbett's typological assessment
 of the phenomenon across languages (\citeyear[pp.\ 4--7]{Corbett2006}).
 
@@ -137,77 +159,105 @@ criteria for canonical agreement in the same work of \textcite[pp.\
 8ff.]{Corbett2006}.
 
 If this assessment is sound, it is expected that attraction and
-non\hyp{}attraction behave as different resolutions of agreement, the former
-being less canonical and thus more likely to be conditioned.
-Tipologically, factors favouring non\hyp{}canonical agreement resolutions
-include: animacy, thematic roles and grammatical relation of the controller,
-relative word order and distance (precedence of the target), communicative
-function, definitiness, and predication class.
+non\hyp{}attraction behave as competing agreement resolutions, the former being
+less canonical and thus more likely to be conditioned.
+Conditions concerning the semantic and pragmatic properties of the controller,
+its precedence in relation to the target and the class of predication (i.e.:
+class of the domain) have been identified by Corbett.
+Although properties of the target were not shown to be favouring any resolution
+in agreement mismatches in Corbett's survey, case attraction might be one
+example of it, and I will hypothesize that properties of targets are competing
+causes of non\hyp{}canonical resolutions.
+A model of agreement in this framework may be represented as a direct acyclic
+graph, in which \textbf{A}ttraction is caused by features of the
+\textbf{C}ontroller, \textbf{D}omain and \textbf{T}arget:
+
+\begin{center}
+	\includegraphics[width=0.60\textwidth]{figs/dag1.png}
+\end{center}
 
 % chapter Nature of attraction (end)
+
+\chapter{The domain of attraction}\label{chap:the_domain_of_attraction} % (fold)
+
+Firstly, many have associated case attraction with sentences in which the
+infinitival clause is a copular infinitive, an einai or genesthai.
+Should the class of the infinitive favour either resolution of agreement?
+Probably not directly, as there is no reason linguistically it would.
+Copular infinitives, however, have a double effect on the agreement ``causes'':
+\begin{compactenum}
+\item they filter the possible relations between controller and target, as those are
+now more likely in primary predication, rather than secondary or appositive
+relation;
+\item this then delimits the option of target, making it more likely that they are nouns or adjectives, rather than participles.
+\end{compactenum}
+Going for a schema, let's say that Attraction is caused by the type of
+Relation (more or less predicative, or attributive) and by the Part of Speech of
+the Target, which is itself partially caused by the Relation.
+
+
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{figs/dag2.png}
+\end{center}
+
+
+
+\chapter{The controller of attraction}\label{chap:the_controller_of_attraction} % (fold)
+
+
+Another association is that between case attraction and impersonal verbs.
+I have, however, shown that this association does not exist with every single
+impersonal verb, and that the verb δοκέω almost never heads a sentence with case
+attraction.
+The impersonal verbs which are actually associated with case attraction are
+those carrying modal semantics, such as ἐξαρκεῖ and ἔξεστί.
+Is it likely that the nature of the matrix verb directly affects the choice of
+agreement? I don't think so, but it may indirectly do, by defining which
+features the controller of agreement, the oblique object, has.
+These verbs have very little semantic information and the theta role and
+grammatical function of their oblique object seems to depend on the infinitive
+verb.
+We may say that σοι in~\Next, for example, is the subject of the sentence
+(a quirk subject of sorts) and has the thematic role of agent, much in contrast
+if the sentence was constructed with a verb of order or advice like συμβουλέυω.
+
+
+\ex. ἀλλ᾽ ἐξαρκῇ σοι τὰ ἔργα αὐτῶν ὁρῶντι σέβεσθαι καὶ τιμᾶν τοὺς θεούς.\\
+But it is enough for you to look at these deeds and respect the gods. 
+(Xen.\ \emph{Mem.} 4.3.13) 
+
+
+% chapter The controller of attraction (end)
+
+\chapter{The target of attraction}\label{chap:the_target_of_attraction} % (fold)
+
+
+Finally, it has been long been proposed that case agreement is more likely when
+controller and target are very close to each other, and the likelihood
+diminishes as it grows.
+I have previously showed that, although very much associated, long distance
+between controller and target is not a dependable predictor for lack of
+attraction, but that precedence of the target in relation to the controller
+seems to demand case attraction, such as in~\Next.
+
+\ex.ὡς \textbf{ἀγαθοῖς} τε \textbf{ὑμῖν} προσήκει εἶναι.\\
+That you may be good people. (Xen.\ \emph{Anab.} 3.2.11)
+
+As with the previous factors, we must ask: are distance and precedence directly
+causing case attraction, or are they indirect causes?
+Longer distances have been show to favour non-canonical agreement resolutions in
+other languages, such as with personal pronouns agreeing with committee nouns in
+English, which are more likely to be plural the further away from their
+controller.
+This is the very opposite of what is being proposed for case attraction: the
+canonical agreement (the local one) is the one becoming more likely as farther
+away the target is from the controller.
+
+% chapter The target of attraction (end)
+
 
 \renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
 \printbibliography%
 \renewcommand*{\mkbibnamefamily}[1]{#1}
-
-\begin{appendices}
-	\chapter{Criteria for Canonical Agreement}
-
-	The following list summarizes the criteria for canonical agreement as
-	discussed in section 1.4 of~\textcite[pp.\ 8ff.]{Corbett2006}.
-	The underlines indicate what position in the hierarchy case attraction
-	arguably occupies.
-
-	\begin{raggedright}
-
-		\begin{compactitem}
-			\item Controllers:
-			\begin{compactitem}
-				\item C-1: \uline{controller present} > controllergabsent
-				\item C-2: \uline{controller has overt expression of agreement features}
-				> controller has covert expression of agreement features
-				\begin{compactitem}
-					\item ``A canonical controller marks at least as many distinctions
-					as the target''
-				\end{compactitem}
-				\item C-3: consistent controller > \uline{hybrid controller}
-				\item C-4: \uline{controller's part of speech is irrelevant} > is
-				relevant (given the domain)
-			\end{compactitem}
-			\item Targets:
-			\begin{compactitem}
-				\item C-5: \uline{inflectional marking (affix)} > clitic > free word
-				\item C-6: obligatory > \uline{optional}
-				\item C-7: \uline{regular} > suppletive
-				\item C-8: alliterative > \uline{opaque}
-				\item C-9: \uline{productive marking of agreement} > sporadic marking
-				\item C-10: \uline{target always agree} > target agrees only when
-				controller is absent
-				\item C-11: target agrees with a single controller > agrees with more than
-				one controller
-				\item C-12: target has no choice of controller > \uline{target has choice
-					of controller (is `trigger-happy')}
-				\item C-13: target's part of speech is irrelevant > \uline{is relevant
-					(given the domain)}
-			\end{compactitem}
-			\item Domains:
-			\begin{compactitem}
-				\item C-14: \uline{asymmetric} > symmetric
-				\item C-15: local domain > \uline{non-local domain}
-				\item C-16: domain is one of a set > single domain
-			\end{compactitem}
-			\item Features:
-			\begin{compactitem}
-				\item C-17: feature is lexical > \uline{non-lexical}
-				\item C-18: features have matching values > non-matching values
-				\item C-19: no choice of feature value > \uline{choice of value}
-			\end{compactitem}
-			\item Conditions:
-			\begin{compactitem}
-				\item C-20: no conditions > conditions
-			\end{compactitem}
-		\end{compactitem}
-	\end{raggedright}
-\end{appendices}
 
 \end{document}
