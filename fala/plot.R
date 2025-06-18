@@ -1,6 +1,8 @@
 require("dagitty")
+require("tidyverse")
 require("ggdag")
 require("ggplot2")
+set.seed(1)
 
 png("figs/dag1.png")
 ggdag(
@@ -18,39 +20,64 @@ ggdag(
 ) + theme_dag_blank()
 dev.off()
 
-png("figs/dag2.png")
+png("figs/dag2a.png")
 dag <- dagitty('
     dag {
     A [outcome,pos="0,0"]
     D [latent,pos="0.0,-1"]
-    P [exposure,pos="-1,0"]
+    PoS [exposure,pos="-1,0"]
     C [pos="-1,-1"]
     D -> A
     D -> C -> A
-    P -> A <- P
-    C -> P
+    PoS -> A <- PoS
+    C -> PoS
   }') %>%
   tidy_dagitty() %>%
   dag_label(
     labels = c(
       "A" = "outcome",
       "D" = "latent",
-      "P" = "exposure",
-      "C" = "adjusted"
+      "PoS" = "exposure"
     )
   )
 dag %>% ggdag_paths_fan(
-  from = "P",
+  from = "PoS",
   to = "A",
-  spread = 1.5,
-  text_size = 10
-) + theme_dag_blank()
+  shadow = TRUE,
+  node = FALSE,
+  text = FALSE,
+) + geom_dag_point(aes(color = label)) +
+  geom_dag_text(text_size = 5) +
+  theme_dag_blank(legend.position = "none")
 dev.off()
 
-dag %>%
-  ggplot(aes(x = x, y = y, xend = xend, yend = yend)) +
-  geom_dag_point(aes(color = label), show.legend = FALSE) +
-  geom_dag_text(aes(color = label)) +
-  geom_dag_edges() +
-  geom_dag_label_repel(aes(label = label), colour = "black", box.padding = 3) +
-  theme_dag()
+png("./figs/dag2b.png")
+dag <- dagitty('
+    dag {
+    A [outcome,pos="0,0"]
+    D [latent,pos="0.0,-1"]
+    PoS [exposure,pos="-1,0"]
+    C [pos="-1,-1"]
+    D -> A
+    D -> C -> A
+    PoS -> A <- PoS
+    C -> PoS
+  }') %>%
+  tidy_dagitty() %>%
+  dag_label(
+    labels = c(
+      "A" = "outcome",
+      "D" = "latent",
+      "C" = "exposure"
+    )
+  )
+dag %>% ggdag_paths_fan(
+  from = "C",
+  to = "A",
+  shadow = TRUE,
+  node = FALSE,
+  text = FALSE,
+) + geom_dag_point(aes(color = label)) +
+  geom_dag_text(text_size = 5) +
+  theme_dag_blank(legend.position = "none")
+dev.off()
