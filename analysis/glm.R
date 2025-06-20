@@ -41,7 +41,7 @@ flist <- alist(
     b_pos * sum(delta_j_pos[1:PoS]) +
     b_th * sum(delta_j_th[1:Th]) +
     z_auth[Auth] * s_auth +
-    z_dia[Dia] * s_dia +
+    b_dia_bar + z_dia[Dia] * s_dia +
     b_dist * Dist +
     b_wo * Prec,
   # base
@@ -65,9 +65,10 @@ flist <- alist(
   s_auth ~ exponential(1),
   gq > vector[Auth]:b_auth <<- z_auth * s_auth,
   # dia
+  b_dia_bar ~ normal(0, 1),
   z_dia[Dia] ~ normal(0, 1),
   s_dia ~ exponential(1),
-  gq > vector[Dia]:b_dia <<- z_dia * s_dia,
+  gq > vector[Dia]:b_dia <<- b_dia_bar + z_dia * s_dia,
   # Dist
   b_dist ~ normal(0, 1),
   # WO
@@ -266,7 +267,7 @@ dev.off()
 
 
 # Dialect
-(a <- precis(model, pars = c("b_dia"), depth = 2))
+(a <- precis(model, pars = c("b_dia_bar", "s_dia", "b_dia"), depth = 2))
 sink("./tables/model_dialect_effects.tex")
 tibble(
   Effect = a@row.names,
@@ -277,6 +278,8 @@ tibble(
   rhat = round(a@.Data[[5]], 2),
 ) %>%
   mutate(Effect = c(
+    "$\\overline{\\beta}_{\\text{Dia}}$",
+    "$\\sigma_{\\text{Dia}}$",
     "$\\beta_{\\text{Attic}}$",
     "$\\beta_{\\text{Jonic}}$"
   )) %>%
@@ -432,6 +435,3 @@ plot(precis(model, pars = "b_auth", depth = 2),
   )
 )
 dev.off()
-
-diff_hdt <- samples$b_aut[, 8] - mean(samples$b_auth[, c(1:7, 9:16)])
-dens(diff_hdt)

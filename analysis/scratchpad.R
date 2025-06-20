@@ -53,3 +53,34 @@ m2 <- ulam(
 )
 
 compare(m0, m1, m2)
+
+# Independence tests
+chisq.test(dados$GENRE, dados$Attr)
+
+chisq.test(dados$GENRE, dados$Attr)
+
+dados_modal_vm <- dados %>% filter(VM_MOD)
+dados_not_modal_vm <- dados %>% filter(!VM_MOD)
+
+
+chisq.test(dados_modal_vm$GENRE, dados_modal_vm$Attr)
+chisq.test(dados_not_modal_vm$GENRE, dados_not_modal_vm$Attr)
+
+chisq.test(dados_modal_vm$AUTHOR, dados_modal_vm$Attr)
+chisq.test(dados_not_modal_vm$AUTHOR, dados_not_modal_vm$Attr)
+
+
+dados_juridical <- dados %>% filter(GENRE == "juridical")
+dados_drama <- dados %>% filter(GENRE == "drama")
+dados_historiography <- dados %>% filter(GENRE == "historiography")
+dados_philosophical <- dados %>% filter(GENRE == "philosophical_dialogue")
+dados_other <- dados %>% filter(GENRE == "other")
+
+chisq.test(dados_juridical$AUTHOR, dados_juridical$Attr)
+chisq.test(dados_drama$AUTHOR, dados_drama$Attr)
+chisq.test(dados_historiography$AUTHOR, dados_historiography$Attr)
+chisq.test(dados_philosophical$AUTHOR, dados_philosophical$Attr)
+chisq.test(dados_other$AUTHOR, dados_other$Attr)
+
+chisq.test(dados$VM_MOD, dados$Vinf_Cop)
+chisq.test(dados$AUTHOR, dados$Cop)
