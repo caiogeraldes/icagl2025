@@ -41,7 +41,7 @@ flist <- alist(
     b_pos * sum(delta_j_pos[1:PoS]) +
     b_th * sum(delta_j_th[1:Th]) +
     z_auth[Auth] * s_auth +
-    z_dia[Dia] * s_dia +
+    b_dia_bar + z_dia[Dia] * s_dia +
     b_dist * Dist +
     b_wo * Prec,
   # base
@@ -65,9 +65,10 @@ flist <- alist(
   s_auth ~ exponential(1),
   gq > vector[Auth]:b_auth <<- z_auth * s_auth,
   # dia
+  b_dia_bar ~ normal(0, 1),
   z_dia[Dia] ~ normal(0, 1),
   s_dia ~ exponential(1),
-  gq > vector[Dia]:b_dia <<- z_dia * s_dia,
+  gq > vector[Dia]:b_dia <<- b_dia_bar + z_dia * s_dia,
   # Dist
   b_dist ~ normal(0, 1),
   # WO
@@ -78,7 +79,8 @@ model <- ulam(
   flist = flist,
   data = dat,
   chains = 4, cores = 4,
-  log_lik = TRUE
+  log_lik = TRUE,
+  file = "./model_glm_2"
 )
 
 precis(model, depth = 2)
@@ -206,9 +208,66 @@ tibble(
   kbl(format = "latex", booktabs = TRUE, escape = FALSE)
 sink()
 
+samples <- extract.samples(model)
+
+
+png(
+  "./figs/posterior_b_copula.png",
+  units = "px", width = 1600, height = 1600, res = 300
+)
+density_b_c <- density(samples$b_c, bw = 0.036)
+density_b_c <- tibble(x = density_b_c$x, y = density_b_c$y)
+boundaries <- HPDI(samples$b_c)
+density_b_c %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_line() +
+  geom_area(
+    data = subset(
+      density_b_c,
+      x > boundaries[1] & x < boundaries[2]
+    ),
+    mapping = aes(x = x, y = y),
+    fill = "purple",
+    alpha = 0.5
+  ) +
+  xlab("b_cop") +
+  ylab("density") +
+  theme(
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20)
+  )
+dev.off()
+
+png(
+  "./figs/posterior_b_dist.png",
+  units = "px", width = 1600, height = 1600, res = 300
+)
+density_b_dist <- density(samples$b_dist, bw = 0.0035)
+density_b_dist <- tibble(x = density_b_dist$x, y = density_b_dist$y)
+boundaries <- HPDI(samples$b_dist)
+density_b_dist %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_line() +
+  geom_area(
+    data = subset(
+      density_b_dist,
+      x > boundaries[1] & x < boundaries[2]
+    ),
+    mapping = aes(x = x, y = y),
+    fill = "purple",
+    alpha = 0.5
+  ) +
+  xlab("b_dist") +
+  ylab("density") +
+  theme(
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20)
+  )
+dev.off()
+
 
 # Dialect
-(a <- precis(model, pars = c("b_dia"), depth = 2))
+(a <- precis(model, pars = c("b_dia_bar", "s_dia", "b_dia"), depth = 2))
 sink("./tables/model_dialect_effects.tex")
 tibble(
   Effect = a@row.names,
@@ -219,11 +278,105 @@ tibble(
   rhat = round(a@.Data[[5]], 2),
 ) %>%
   mutate(Effect = c(
+    "$\\overline{\\beta}_{\\text{Dia}}$",
+    "$\\sigma_{\\text{Dia}}$",
     "$\\beta_{\\text{Attic}}$",
     "$\\beta_{\\text{Jonic}}$"
   )) %>%
+  rows_append(tibble(
+    Effect =
+      "$\\beta_{\\text{Attic}} - \\beta_{\\text{Jonic}}$",
+    mean = round(mean(samples$b_dia[, 1] - samples$b_dia[, 2]), 2),
+    sd = round(sd(samples$b_dia[, 1] - samples$b_dia[, 2]), 2),
+    `5.5\\%` = round(HPDI(samples$b_dia[, 1] - samples$b_dia[, 2])[1], 2),
+    `94.5\\%` = round(HPDI(samples$b_dia[, 1] - samples$b_dia[, 2])[2], 2),
+    rhat = NA
+  )) %>%
   kbl(format = "latex", booktabs = TRUE, escape = FALSE)
 sink()
+
+png(
+  "./figs/posterior_b_attic.png",
+  units = "px", width = 1600, height = 1600, res = 300
+)
+density_b_attic <- density(samples$b_dia[, 1], bw = 0.06)
+density_b_attic <- tibble(x = density_b_attic$x, y = density_b_attic$y)
+boundaries <- HPDI(samples$b_dia[, 1])
+density_b_attic %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_line() +
+  geom_area(
+    data = subset(
+      density_b_attic,
+      x > boundaries[1] & x < boundaries[2]
+    ),
+    mapping = aes(x = x, y = y),
+    fill = "purple",
+    alpha = 0.5
+  ) +
+  xlab("b_attic") +
+  ylab("density") +
+  theme(
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20)
+  )
+dev.off()
+
+png(
+  "./figs/posterior_b_jonic.png",
+  units = "px", width = 1600, height = 1600, res = 300
+)
+density_b_jonic <- density(samples$b_dia[, 2], bw = 0.06)
+density_b_jonic <- tibble(x = density_b_jonic$x, y = density_b_jonic$y)
+boundaries <- HPDI(samples$b_dia[, 2])
+density_b_jonic %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_line() +
+  geom_area(
+    data = subset(
+      density_b_jonic,
+      x > boundaries[1] & x < boundaries[2]
+    ),
+    mapping = aes(x = x, y = y),
+    fill = "purple",
+    alpha = 0.5
+  ) +
+  xlab("b_jonic") +
+  ylab("density") +
+  theme(
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20)
+  )
+dev.off()
+
+png(
+  "./figs/posterior_diff_dia.png",
+  units = "px", width = 1600, height = 1600, res = 300
+)
+density_diff_dia <- density(samples$b_dia[, 1] - samples$b_dia[, 2], bw = 0.06)
+density_diff_dia <- tibble(x = density_diff_dia$x, y = density_diff_dia$y)
+boundaries <- HPDI(samples$b_dia[, 1] - samples$b_dia[, 2])
+density_diff_dia %>%
+  ggplot(aes(x = x, y = y)) +
+  geom_line() +
+  geom_area(
+    data = subset(
+      density_diff_dia,
+      x > boundaries[1] & x < boundaries[2]
+    ),
+    mapping = aes(x = x, y = y),
+    fill = "purple",
+    alpha = 0.5
+  ) +
+  geom_vline(aes(xintercept = 0)) +
+  xlab("b_attic - b_jonic") +
+  ylab("density") +
+  theme(
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20)
+  )
+dev.off()
+
 
 # Author
 (a <- precis(model, pars = c("b_auth"), depth = 2))

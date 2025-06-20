@@ -94,7 +94,7 @@
 
 \maketitle
 
-\chapter{Introduction}\label{chap:introduction} % (fold)
+\chapter{Introduction} % (fold)
 
 \paragraph{Good morning.} 
 Nominal predicates and adjuncts modifying subjects of complement infinitive
@@ -144,20 +144,24 @@ one resolution to be at the very least more likely.
 I wasn't, however, quite convinced about neither the methods, the data, and,
 consequently, the quality of the results at which I had arrived.
 The main reason for this distrust is the fact that there could be interaction
-between the factors analysed which the methods employed were not well designed
-to account for, at least not with the amount of data available.
-To solve these shortcomings, we must take some steps back and build a model for
-what is the linguistic nature of case attraction
+between the factors analysed for which the methods employed were not well designed
+to account, at least not with the amount of data available.
+A secondary motive was the classic adage ``correlation is not causation''.
 
-The aim of this paper is to walk through the assumptions present in my own and
-other's assessments of the phenomenon, as I believe most of them are in
-themselves right, build from these assumptions a causal system and show how much
-of this system is left unexplained with what we do know and, more importantly, I
-believe, what we \textbf{can} know and measure about ancient languages in
-general.
+To solve these shortcomings, I have collected more data from a larger
+\emph{corpus} but more importantly swapped the quantitative framework for one
+capable of dealing with multivariate interactions, namely from ``out of the
+shelf'' statistical tests to generalized linear models, and, I believe more
+importantly, to for one capable of expressing the causality behind the
+statistical correlations.
 
+For this to work, however, we must take some steps back and build a causal
+model for what is the linguistic nature of case attraction and how properties of
+the sentence and its constituents might favor its occurrence.
+The following is a walk-through the construction of this causal model and its
+results.
 
-\chapter{The data}\label{chap:the_data} % (fold)
+\chapter{The data} % (fold)
 
 Before stepping into the framework and analysis proper, a brief word on the
 empirical data supporting this research and any conclusion coming from it.
@@ -181,7 +185,7 @@ as well as the software Stan~(\cite{StanReferenceManual,StanUserGuide}).
 
 % chapter The data (end)
 
-\chapter{Nature of attraction}\label{chap:nature_of_attraction} % (fold)
+\chapter{Nature of attraction} % (fold)
 
 In the most abstract way possible, case attraction in infinitive clauses,
 exemplified by~\ref{gloss:attr}, is when two constituents, a controller and a
@@ -220,7 +224,7 @@ graph, in which \textbf{A}ttraction ($\simeq$ Agreement) is caused by features
 of the \textbf{C}ontroller, \textbf{D}omain and \textbf{T}arget:
 
 \begin{center}
-	\includegraphics[width=0.60\textwidth]{figs/dag1.png}
+	\includegraphics[width=0.40\textwidth]{../analysis/figs/dag_non_canonical_agreement.png}
 \end{center}
 
 These Controller, Domain and Target nodes represent clusters of linguistic
@@ -228,6 +232,8 @@ factors, some of which we may observe directly (part of speech of the target),
 some might be implied (animacy) and some may remain unobserved (discourse
 function, as Ancient Greek does not overtly marks focuses or topics in the
 morphosyntax, at least not dependably).
+When an observed factor is included in the model, we split the cluster into
+two nodes: the one of observed factor and that containing rest of unobserved features.
 
 The three factors previously shown to correlate to case attraction represent
 each of these nodes:
@@ -243,7 +249,7 @@ each of these nodes:
 
 % chapter Nature of attraction (end)
 
-\chapter{The domain of attraction}\label{chap:the_domain_of_attraction} % (fold)
+\chapter{The domain of attraction} % (fold)
 
 Firstly, \textcite{KG} and others have associated case attraction with sentences
 in which the infinitival clause is a copular infinitive, einai or genesthai.
@@ -300,12 +306,12 @@ adjust the statistic model by $C$, so that we block the non\hyp{}causal path $P
 \leftarrow C  \rightarrow A$.
 
 \begin{center}
-\includegraphics[width=0.75\linewidth]{../analysis/figs/dag_a.png}
+\includegraphics[width=0.55\linewidth]{../analysis/figs/dag_a.png}
 \end{center}
 
 
 
-\chapter{The controller of attraction}\label{chap:the_controller_of_attraction} % (fold)
+\chapter{The controller of attraction} % (fold)
 
 Another association is that between case attraction and impersonal verbs.
 I have, however, shown that this association does not exist with every single
@@ -338,11 +344,11 @@ Role is a sister node of \textbf{P}art \textbf{o}f \textbf{S}peech, as it is
 Adding to our previous DAG, the model will look like:
 
 \begin{center}
-\includegraphics[width=0.75\linewidth]{../analysis/figs/dag_b.png}
+\includegraphics[width=0.55\linewidth]{../analysis/figs/dag_b.png}
 \end{center}
 
 
-\chapter{Intermezzo: Authors and dialects}\label{chap:intermezzo_authors_and_dialects} % (fold)
+\chapter{Intermezzo: Authors and dialects} % (fold)
 
 I have argued previously that, in the corpus of Herodotus, Plato and Xenophon,
 the verbs of modal semantics were preferred by the authors when writing in the
@@ -358,7 +364,7 @@ We must thus add \textbf{Auth}orship, \textbf{Genre} and \textbf{Dia}lect to our
 causal model.
 
 \begin{center}
-\includegraphics[width=0.75\linewidth]{../analysis/figs/dag_c.png}
+\includegraphics[width=0.55\linewidth]{../analysis/figs/dag_c.png}
 \end{center}
 
 
@@ -376,13 +382,14 @@ These last couple of additions have the following consequences:
 	\textbf{Th}ematic role.
 \end{compactitem}
 
+\clearpage
 
 % chapter Intermezzo: Authors and dialects (end)
 
 
 % chapter The controller of attraction (end)
 
-\chapter{The target of attraction}\label{chap:the_target_of_attraction} % (fold)
+\chapter{The target of attraction} % (fold)
 
 Finally, it has been long been proposed that case agreement is more likely when
 controller and target are very close to each other, and the likelihood
@@ -411,94 +418,111 @@ The effect of distance, on the other hand, is measurable, so long as we control
 for its effect on word order: distance changes word order, so we must block the
 non\hyp{}causal path that flows from distance to attraction going through word
 order and communicative function.
-
-In the model:
+In the DAG\@:
 
 \begin{center}
-\includegraphics[width=0.75\linewidth]{../analysis/figs/dag_d.png}
+\includegraphics[width=0.60\linewidth]{../analysis/figs/dag_d.png}
 \end{center}
+\clearpage
 
 
 % chapter The target of attraction (end)
 
-\chapter{Analysis}\label{chap:analysis} % (fold)
+\chapter{Analysis} % (fold)
 
 Fortunately, we don't need many different models to estimate the effects of many
 of the factors of interest.
 By applying the do-calculus, so long as we control for Word Order, we can
 estimate the direct effects of:
-\begin{compactitem}
+\begin{inparaenum}
 	\item Part of Speech of the target;
 	\item Copular infinitive (i.e.:\ class of predication);
 	\item Thematic role of the oblique object;
 	\item Dialect;
 	\item Authorship; and
-	\item Distance
-\end{compactitem}
-
-The following generalize linear model allows us to do so:
+	\item Distance.
+\end{inparaenum}
+The following generalized linear model allows us to do so:
 
 \begin{align*}
 	\text{A} &\sim \text{Bernoulli}(p_i)\\
 	\text{logit}(p_i) &= \alpha + 
 	\beta_{\text{Cop}}\text{Cop}_i + 
 	\beta_{\text{Dist}}\text{Dist}_i + \beta_{\text{WO}} \text{Prec}_i \\&+
-		\beta_{\text{PoS}}\sum^{PoS_i-1}_{j=0}{\delta_j_{\text{PoS}}} + \beta_{\text{Th}}\sum^{Th_i-1}_{j=0}{\delta_j_{\text{Th}}} \\&+
-		\beta_{\text{Auth}_i} + \beta_{\text{Dia}_i}\\
+	\beta_{\text{PoS}}\sum^{PoS_{i}-1}_{j=0}{\delta_{j_{\text{PoS}}}} + \beta_{\text{Th}}\sum^{Th_{i}-1}_{j=0}{\delta_{j_{\text{Th}}}} \\&+
+		\beta_{\text{Auth}_{i}} + \beta_{\text{Dia}_i}\\
 	\alpha &\sim \text{Normal}(0, 1)\\
 	\beta_{\text{Cop}}, \beta_{\text{Dist}}, \beta_{\text{Prec}} &\sim \text{Normal}(0, 1)\\
 	\beta_{\text{PoS}}, \beta_{\text{Th}} &\sim \text{Normal}(0, 0.5)\\
 	\delta_{\text{PoS}}, \delta_{\text{Th}} &\sim \text{Dirichlet}(2)\\
-	\beta_{\text{Auth}_j} &\sim \text{Normal}(\overline{\beta}_{\text{Auth}},
-	\sigma_{\text{Auth}})\\
-	\beta_{\text{Dia}_j} &\sim \text{Normal}(\overline{\beta}_{\text{Dia}}, \sigma_{\text{Dia}})\\
-	\overline{\beta}_{\text{Auth}}, \overline{\beta}_{\text{Dia}} &\sim \text{Normal}(0, 1)\\
-	\sigma_{\text{Auth}}, \sigma_{\text{Dia}} &\sim \text{Exponential}(1)\\
+	\beta_{\text{Auth}} &= z_{\text{Auth}}*\sigma_{\text{Auth}}\\
+	\beta_{\text{Dia}} &= z_{\text{Dia}}*\sigma_{\text{Dia}}\\
+	z_{\text{Auth}}, z_{\text{Dia}} &\sim \text{Normal}(0,1)\\
+	\sigma_{\text{Auth}}, \sigma_{\text{Dia}} &\sim \text{Exponential}(1)
 \end{align*}
 
-
-
-% \begin{figure}[!h]
-% \centering
-% \begin{minipage}{.45\textwidth}
-%   \centering
-%   \includegraphics[width=\linewidth]{../analysis/figs/dag_cop.png}
-%   \captionof{figure}{Open causal paths between $C$ and $A$. The green node is
-% 	unobserved. The blue path is non\hyp{}causal and can not be closed.}
-%   \label{fig:openpaths_c_a}
-% \end{minipage}%
-% \hfill
-% \begin{minipage}{.45\textwidth}
-%   \centering
-%   \includegraphics[width=\linewidth]{../analysis/figs/dag_pos.png}
-%   \captionof{figure}{Open causal paths between $PoS$ and $A$. The green node is
-% 	unobserved. The blue path is non-causal and must be closed by adjusting for
-% 	$C$, which also closes the green path.}
-%   \label{fig:openpaths_pos_a}
-% \end{minipage}
-% \end{figure}
-
-To estimate the effect of $PoS$ over Attraction, we can use the generalized
-linear model below.
-We can control for Author, as there is no reason to believe that any author from
-the corpus prefers copulas or any type of target.
-As it is usually agreed that typological hierarchies increase their effect
-monotonically by each of their nodes, but we do not know if their effect should
-be linear or not, a Dirichlet prior is suitable to express the effect of Part of
-Speech.
-% We coarse the base likelihood of case attraction to be negative as we assume
-% that it is the non\hyp{}canonical agreement resolution, meaning it should be
-% less likely to occur.
-
-
-\noindent The priors are fairly flat, as there is no reason to believe we have weak or
+A brief note on priors:
+Those are fairly flat, as there is no reason to believe we have weak or
 strong relationships in agreement phenomena.
-$\beta_{\text{PoS}}$ is the general effect of the part of speech over the likelihood of
-Attraction, and $\delta$ is a vector with values
-denoting how much going up from Participle to Adjective to Noun increases
-$\beta_{\text{PoS}}$.
-Participles do not change the effect, Adjectives add $\delta_1$ and Nouns add
-$\delta_1 + \delta_2$, meaning that the effect is expected to be cumulative.
+The effects of Part of Speech and Thematic Role (the scary ones with sums) are
+modeled as Ordered Categorical Predictors using the Dirichlet distribution.
+This is to represent the generally agreed idea that typological hierarchies have
+``cutoff'' points in between the nodes and that their effect increases
+``monotonically'' as we traverse between the nodes.
+The first node of each hierarchy will have the base effect $\beta_{X}$, and the
+following nodes will ``accumulate'' effect. Using Part of speech as an example,
+$\beta_{\text{PoS}}$ is the general effect of the part of speech over the
+likelihood of Attraction, and $\delta$ is a vector with values denoting how much
+going up from Participle to Adjective to Noun increases $\beta_{\text{PoS}}$.
+Participles do not change the effect, Adjectives add $\delta_1$ and Nouns adds
+both the effects $\delta_1 + \delta_2$.
+
+The effects Authorship and Dialect have non\hyp{}centered priors to preform
+partial pooling, so that we are able to estimate how much variation there is
+between each of their values.
+
+\section{Copula and Distance} % (fold)
+
+The most generally associated factors with attraction, namely the infinitive
+being a copula and the distance between controller and target show the expected
+effects:
+
+\begin{center}
+	\input{../analysis/tables/model_copula_dist_effects.tex}
+\end{center}
+
+\begin{figure}[!h]
+\centering
+\begin{minipage}{.48\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{../analysis/figs/posterior_b_copula.png}
+	\captionof{figure}{Posterior distribution of $\beta_\text{Cop}$ with the 89\%
+	Highest Posterior Density Interval.}
+\end{minipage}%
+\hfill
+\begin{minipage}{.48\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{../analysis/figs/posterior_b_dist.png}
+	\captionof{figure}{Posterior distribution of $\beta_\text{Dist}$ with the 89\%
+	Highest Posterior Density Interval.}
+\end{minipage}
+\end{figure}
+
+The estimate effect for Distance is quite precise, and, to offer an intuition of
+what these values mean, the model predicts that by the time the controller and
+target are 8 words apart, on average, the fact that the infinitive is a copula
+is no longer relevant, i.e., the attraction is no longer a more likely outcome.
+If our causal model is sound, this is an important result for the typology of
+agreement in general, as the evidence from other languages predict that higher
+distances between controller and target would favor non\hyp{}canonical agreement
+resolutions (e.g.:\ modifiers of committee nouns in English are more likely to
+stand in the plural when far away from their controller, as shown by
+\textcite[98]{Levin2001}).\footnote{Other examples in
+\textcite[235]{Corbett2006}}.
+
+% section Copula and Distance (end)
+
+\section{Part of Speech and the Predicate Hierarchy} % (fold)
 
 The estimated effects are described in the following table and plot.
 
@@ -510,18 +534,21 @@ The estimated effects are described in the following table and plot.
 
 
 \begin{center}
-	\includegraphics[width=0.75\linewidth]{../analysis/figs/model_domain_banddelta.png}
+	\includegraphics[width=0.70\linewidth]{../analysis/figs/model_domain_banddelta.png}
 \end{center}
 
 To put it into words, the data favours the idea that the Agreement and
 Predication Hierarchy holds for case attraction in Ancient Greek case
 attraction: as the target becomes more ``nominal'', the likelihood of attraction
 increases from basically neutral with participles up to highly positive.
-Notice that the model assumes that the effect of adjectives and nouns are
-negatively correlated, meaning that it does not discounts the possibility that
-the bulk of the effect is in the passage from Participles to Adjetives, and
-going further up to a Noun makes little difference.
+There is still a fair amount of uncertainty on how strong the effect is,
+however, and if the major cutoff point is between Participle and Adjective or
+between Adjective and Noun.
 
+
+\section{Thematic Role of the Controller} % (fold)
+
+The estimated effects are described in the following table and plot.
 
 \begin{center}
 	\input{../analysis/tables/model_theta_effects.tex}
@@ -529,24 +556,52 @@ going further up to a Noun makes little difference.
 	\input{../analysis/tables/model_theta_cummulative_effects.tex}
 \end{center}
 
-
 \begin{center}
 	\includegraphics[width=0.75\linewidth]{../analysis/figs/model_theta_banddelta.png}
 \end{center}
 
-\begin{center}
-	\input{../analysis/tables/model_copula_dist_effects.tex}
-\end{center}
+Again, the results confirm the hypothesis that attraction is more likely to
+occur when the oblique object of the matrix clause is more ``canonically'' a
+subject.
+The effect is quite strong and the model is quite certain that when the matrix
+verb encodes modality and the thematic role of `Agent' is assigned by the
+infinitive verb, there is a big increase in the likelihood of attraction.
+
+% section Thematic Role of the Controller (end)
+
+\section{Dialect and Authorship} % (fold)
+
+The model estimates that Attic and Jonic are quite different on how often they
+employ case attraction, Jonic being predicted to use it much less often when all
+the other factors are the same.
+Although the model can not estimate a precise value (the standard deviation is
+on the higher end), it is very confident of the contrast.
+It also predicts that dialects should have a great amount of variation, as
+denoted by the parameter $\sigma_\text{Dia}$.
 
 \begin{center}
 	\input{../analysis/tables/model_dialect_effects.tex}
 \end{center}
 
+\begin{figure}[!h]
+\centering
+  \includegraphics[width=0.5\linewidth]{../analysis/figs/posterior_diff_dia.png}
+	\caption{Posterior distribution of the difference between
+		$\beta_\text{Attic}$ and $\beta_\text{Jonic}$ with the 89\%
+	Highest Posterior Density Interval.}
+\end{figure}
+\clearpage
+
+Finally, a word on authorship.
+After controlling for dialect and preferred choice of matrix verb, most of the
+authors are predicted to similar in their use of case attraction, with a curious
+tendency of Xenophon to be, on average, less likely to employ it.
 
 \begin{center}
-	\input{../analysis/tables/model_author_effects.tex}
 	\includegraphics[width=0.75\linewidth]{../analysis/figs/precis_author.png}
 \end{center}
+
+% section Authorship and Dialect (end)
 
 % chapter Analysis (end)
 

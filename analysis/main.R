@@ -7,6 +7,16 @@ require("ggdag")
 source("./fix_pairs_rethinking.R")
 source("./pred_a_info.R")
 
+png(
+  "./figs/dag_non_canonical_agreement.png",
+  units = "px", width = 800, height = 800, res = 200
+)
+dagitty("dag{
+ C -> A <- D
+ T -> A
+}") %>% tidy_dagitty() %>% ggdag(text_size = 10) + theme_dag_blank()
+dev.off()
+
 # Loading data
 dados <- read_csv("./data_animacy.csv") %>%
   mutate(pos_pred_a = factor(pred_a_pos, levels = c("A", "N", "P")),
