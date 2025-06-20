@@ -1,6 +1,7 @@
 analysissrc := "analysis/"
 falasrc := "fala/"
 slidessrc := "slides/"
+handoutsrc := "handout/"
 abstractsrc := "abstract/"
 articlesrc := "article/"
 
@@ -9,7 +10,7 @@ default:
 
 all: analysis tex
 
-tex: abstract fala slides article
+tex: abstract fala slides article handout
 
 analysis:
     cd {{ analysissrc }} && R CMD BATCH main.R
@@ -38,3 +39,9 @@ abstract:
     cd {{ abstractsrc }} && biber --quiet main
     cd {{ abstractsrc }} && lualatex --interaction=batchmode --draftmode main.tex
     cd {{ abstractsrc }} && lualatex --interaction=batchmode main.tex
+
+handout:
+    cd {{ handoutsrc }} && lualatex --interaction=batchmode --draftmode main.tex
+    cd {{ handoutsrc }} && biber --quiet main
+    cd {{ handoutsrc }} && lualatex --interaction=batchmode --draftmode main.tex
+    cd {{ handoutsrc }} && lualatex --interaction=batchmode main.tex

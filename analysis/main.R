@@ -250,3 +250,45 @@ dag_d %>%
   geom_dag_text() +
   theme_dag_blank()
 dev.off()
+
+
+dag_e <- dagitty::dagitty("
+  dag{
+    A
+    PoS
+    Cop
+    D
+    C -> A
+    D -> A <- PoS <- Cop
+    Cop -> A
+    Cop -> Th -> A
+    T -> A
+    Auth -> Genre -> Th
+    Auth -> A <- Dia <- Auth
+    T <- WO <- Dist -> A
+  }
+") %>%
+  tidy_dagitty() %>%
+  dag_label(
+    labels = c(
+      "A" = "outcome",
+      "D" = "unobserved",
+      "T" = "unobserved",
+      "C" = "unobserved",
+      "Cop" = "exposure",
+      "PoS" = "exposure",
+      "WO" = "adjusted",
+      "Th" = "exposure",
+      "Auth" = "exposure",
+      "Dia" = "exposure",
+      "Dist" = "exposure"
+    )
+  )
+
+png("./figs/dag_e.png", units = "px", width = 1600, height = 1600, res = 300)
+dag_e %>%
+  ggdag() +
+  geom_dag_node(aes(color = label)) +
+  geom_dag_text() +
+  theme_dag_blank()
+dev.off()
