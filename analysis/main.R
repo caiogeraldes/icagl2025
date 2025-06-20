@@ -283,5 +283,3 @@ dag_d %>%
   geom_dag_text() +
   theme_dag_blank()
 dev.off()
-
-source("./glm.R")
