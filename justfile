@@ -1,14 +1,15 @@
 analysissrc := "analysis/"
 falasrc := "fala/"
 slidessrc := "slides/"
+abstractsrc := "abstract/"
 articlesrc := "article/"
 
 default:
     just --list
 
-all: analysis fala slides
+all: analysis tex
 
-tex: fala slides article
+tex: abstract fala slides article
 
 analysis:
     cd {{ analysissrc }} && R CMD BATCH main.R
@@ -31,3 +32,9 @@ article:
     cd {{ articlesrc }} && biber --quiet main
     cd {{ articlesrc }} && lualatex --interaction=batchmode --draftmode main.tex
     cd {{ articlesrc }} && lualatex --interaction=batchmode main.tex
+
+abstract:
+    cd {{ abstractsrc }} && lualatex --interaction=batchmode --draftmode main.tex
+    cd {{ abstractsrc }} && biber --quiet main
+    cd {{ abstractsrc }} && lualatex --interaction=batchmode --draftmode main.tex
+    cd {{ abstractsrc }} && lualatex --interaction=batchmode main.tex
