@@ -435,3 +435,38 @@ plot(precis(model, pars = "b_auth", depth = 2),
   )
 )
 dev.off()
+
+png(
+  "./figs/dens_authors.png",
+  units = "px", width = 1600, height = 1600, res = 300
+)
+as_tibble(samples$b_auth) %>%
+  rename(
+    "Aeschines" = V1,
+    "Aeschylus" = V2,
+    "Andocides" = V3,
+    "Antiphon" = V4,
+    "Aristophanes" = V5,
+    "Demosthenes" = V6,
+    "Euripides" = V7,
+    "Herodotus" = V8,
+    "Isaeus" = V9,
+    "Isocrates" = V10,
+    "Lycurgus" = V11,
+    "Lysias" = V12,
+    "Plato" = V13,
+    "Sophocles" = V14,
+    "Thucydides" = V15,
+    "Xenophon" = V16
+  ) %>%
+  pivot_longer(cols = everything()
+  ) %>%
+  ggplot(aes(x = value)) +
+  geom_density(aes(color = name)) +
+  facet_wrap(vars(name)) +
+  theme(
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20),
+    legend.position = "none"
+  )
+dev.off()

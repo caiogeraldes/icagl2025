@@ -15,6 +15,7 @@ tex: abstract fala slides article handout
 analysis:
     cd {{ analysissrc }} && R CMD BATCH dags.R
     cd {{ analysissrc }} && R CMD BATCH glm.R
+    cd {{ analysissrc }} && Rscript -e 'rmarkdown::render("main.Rmd")'
 
 fala:
     cd {{ falasrc }} && lualatex --interaction=batchmode --draftmode main.tex
