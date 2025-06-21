@@ -18,7 +18,7 @@ dagitty("dag{
 dev.off()
 
 # Loading data
-dados <- read_csv("./data_animacy.csv") %>%
+dados <- read_csv("./data.csv") %>%
   mutate(pos_pred_a = factor(pred_a_pos, levels = c("A", "N", "P")),
     pred_a = pred_a
   )

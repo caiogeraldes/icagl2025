@@ -18,6 +18,7 @@ tex: abstract fala slides article handout
 analysis:
     cd {{ analysissrc }} && R CMD BATCH dags.R
     cd {{ analysissrc }} && R CMD BATCH glm.R
+    cd {{ analysissrc }} && R CMD BATCH plots_tables.R
     cd {{ analysissrc }} && Rscript -e 'rmarkdown::render("main.Rmd")'
 
 fala:
@@ -51,12 +52,13 @@ handout:
     cd {{ handoutsrc }} && lualatex --interaction=batchmode main.tex
 
 package:
-    mkdir -p {{ releasesrc }}
-    cp {{ analysissrc }}/model_glm.rds {{ releasesrc }}/model_glm.rds
+    mkdir -p {{ releasesrc }}/analysis
+    cp {{ analysissrc }}/model_glm.rds {{ releasesrc }}/analysis/model_glm.rds
+    cp {{ analysissrc }}/glm.R {{ releasesrc }}/analysis/glm.R
+    cp {{ analysissrc }}/main.html {{ releasesrc }}analysis.html
     cp {{ falasrc }}/main.pdf {{ releasesrc }}/fala.pdf 
     cp {{ slidessrc }}/main.pdf {{ releasesrc }}/slides.pdf 
     cp {{ handoutsrc }}/main.pdf {{ releasesrc }}/handout.pdf 
-    cp {{ abstractsrc }}/main.pdf {{ releasesrc }}/abstract.pdf 
-    cp {{ articlesrc }}/main.pdf {{ releasesrc }}/article.pdf 
+    # cp {{ articlesrc }}/main.pdf {{ releasesrc }}/article.pdf 
     ouch compress release $(cat version).zip -y
     rm -rdf {{ releasesrc }}

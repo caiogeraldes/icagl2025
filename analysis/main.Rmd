@@ -34,7 +34,7 @@ dagitty("dag{
 ```{r}
 source("./pred_a_info.R")
 (
-  dataset <- read_csv("./data_animacy.csv", show_col_types = FALSE) %>%
+  dataset <- read_csv("./data.csv", show_col_types = FALSE) %>%
     mutate(pos_pred_a = factor(pred_a_pos, levels = c("A", "N", "P")),
       pred_a = pred_a
     )
@@ -243,7 +243,7 @@ dag_e %>%
 
 ## Preparing the data
 ```{r}
-dataset_prep <- read_csv("./data_animacy.csv") %>%
+dataset_prep <- read_csv("./data.csv") %>%
   mutate(pos_pred_a = factor(pred_a_pos, levels = c("A", "N", "P")),
     pred_a = pred_a,
     OBJ_TH = factor(
