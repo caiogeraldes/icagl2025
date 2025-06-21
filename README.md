@@ -18,9 +18,10 @@ for publication, but feel free to explore it.
 The remaining folders are all dedicated for the presentation itself, with self
 explaining names. 
 
-For the updated _release_ version, check the Releases tab, it
-will contain all the pdfs, the compiled Rnotebook, the source code for the
-analysis and the data.
+For the updated _release_ version, check the 
+[Releases](https://github.com/caiogeraldes/icagl2025/releases/), it will 
+contain all the pdfs, the compiled Rnotebook, the source code for the analysis 
+and the data.
 
 If you would like to cite any part contained in this repository, please cite the
 abstract in the book of abstracts.
