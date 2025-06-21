@@ -4,9 +4,12 @@ slidessrc := "slides/"
 handoutsrc := "handout/"
 abstractsrc := "abstract/"
 articlesrc := "article/"
+releasesrc := "release/"
 
 default:
     just --list
+
+build: all package
 
 all: analysis tex
 
@@ -46,3 +49,14 @@ handout:
     cd {{ handoutsrc }} && biber --quiet main
     cd {{ handoutsrc }} && lualatex --interaction=batchmode --draftmode main.tex
     cd {{ handoutsrc }} && lualatex --interaction=batchmode main.tex
+
+package:
+    mkdir -p {{ releasesrc }}
+    cp {{ analysissrc }}/model_glm.rds {{ releasesrc }}/model_glm.rds
+    cp {{ falasrc }}/main.pdf {{ releasesrc }}/fala.pdf 
+    cp {{ slidessrc }}/main.pdf {{ releasesrc }}/slides.pdf 
+    cp {{ handoutsrc }}/main.pdf {{ releasesrc }}/handout.pdf 
+    cp {{ abstractsrc }}/main.pdf {{ releasesrc }}/abstract.pdf 
+    cp {{ articlesrc }}/main.pdf {{ releasesrc }}/article.pdf 
+    ouch compress release $(cat version).zip -y
+    rm -rdf {{ releasesrc }}
