@@ -1,11 +1,8 @@
-require("tidyverse")
+library(tidyverse)
 library(kableExtra)
-require("rethinking")
-require("dagitty")
-require("ggdag")
-
-source("./fix_pairs_rethinking.R")
-source("./pred_a_info.R")
+library(rethinking)
+library(dagitty)
+library(ggdag)
 
 png(
   "./figs/dag_non_canonical_agreement.png",
@@ -14,7 +11,10 @@ png(
 dagitty("dag{
  C -> A <- D
  T -> A
-}") %>% tidy_dagitty() %>% ggdag(text_size = 10) + theme_dag_blank()
+}") %>%
+  tidy_dagitty() %>%
+  ggdag(text_size = 10) +
+  theme_dag_blank()
 dev.off()
 
 # Loading data

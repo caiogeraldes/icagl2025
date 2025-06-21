@@ -13,7 +13,7 @@ all: analysis tex
 tex: abstract fala slides article handout
 
 analysis:
-    cd {{ analysissrc }} && R CMD BATCH main.R
+    cd {{ analysissrc }} && R CMD BATCH dags.R
     cd {{ analysissrc }} && R CMD BATCH glm.R
 
 fala:

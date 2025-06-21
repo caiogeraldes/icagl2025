@@ -1,8 +1,8 @@
-require("tidyverse")
+library(tidyverse)
 library(kableExtra)
-require("rethinking")
-require("dagitty")
-require("ggdag")
+library(rethinking)
+library(dagitty)
+library(ggdag)
 
 source("./fix_pairs_rethinking.R")
 source("./pred_a_info.R")
