@@ -1,6 +1,6 @@
 # Rethinking case attraction on Ancient Greek infinitive clauses
 
-**Caio B. A. Geraldes**
+**Caio B. A. Geraldes** `[caio.geraldes@usp.br](mailto:caio.geraldes@usp.br)`
 
 This repository contains the source code for my talk at the International
 Colloquium of Ancient Greek Linguistics - 2025 (Nice).
