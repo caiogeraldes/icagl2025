@@ -47,6 +47,7 @@ handout:
 package:
     mkdir -p {{ releasesrc }}/analysis
     cp {{ analysissrc }}/model_glm.rds {{ releasesrc }}/analysis/model_glm.rds
+    cp {{ analysissrc }}/data.csv {{ releasesrc }}/analysis/data.csv
     cp {{ analysissrc }}/glm.R {{ releasesrc }}/analysis/glm.R
     cp {{ analysissrc }}/main.html {{ releasesrc }}analysis.html
     cp {{ talksrc }}/main.pdf {{ releasesrc }}/talk.pdf 

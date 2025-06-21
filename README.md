@@ -11,4 +11,9 @@ It depends on above all on the packages
 [rethinking](https://github.com/rmcelreath/rethinking).
 If you would like to reproduce the results and tweak with the code and data,
 check its documentation (it is sometimes a bit tricky to make it work properly,
-specially on Darwin processors).
+specially on Apple's M1 processors).
+The dataset is in csv and will be refined in the next months before it is fit
+for publication, but feel free to explore it.
+
+The remaining folders are all dedicated for the presentation itself, with self
+explaining names.
