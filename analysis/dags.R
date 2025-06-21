@@ -178,7 +178,6 @@ dag_c <- dagitty::dagitty("
     D -> A <- PoS <- Cop
     Cop -> A
     Cop -> Th -> A
-    T -> A
     Auth -> Genre -> Th
     Auth -> A <- Dia <- Auth
   }
@@ -188,7 +187,6 @@ dag_c <- dagitty::dagitty("
     labels = c(
       "A" = "outcome",
       "D" = "unobserved",
-      "T" = "unobserved",
       "C" = "unobserved",
       "Cop" = "observed",
       "PoS" = "observed",
