@@ -444,21 +444,21 @@ estimate the direct effects of:
 \end{inparaenum}
 The following generalized linear model allows us to do so:
 
-\begin{align*}
-	\text{A} &\sim \text{Bernoulli}(p_i)\\
-	\text{logit}(p_i) &= \alpha + 
-	\beta_{\text{Cop}}\text{Cop}_i + 
-	\beta_{\text{Dist}}\text{Dist}_i + \beta_{\text{WO}} \text{Prec}_i \\&+
-	\beta_{\text{PoS}}\sum^{PoS_{i}-1}_{j=0}{\delta_{j_{\text{PoS}}}} + \beta_{\text{Th}}\sum^{Th_{i}-1}_{j=0}{\delta_{j_{\text{Th}}}} \\&+
-		\beta_{\text{Auth}_{i}} + \beta_{\text{Dia}_i}\\
-	\alpha &\sim \text{Normal}(0, 1)\\
-	\beta_{\text{Cop}}, \beta_{\text{Dist}}, \beta_{\text{Prec}} &\sim \text{Normal}(0, 1)\\
-	\beta_{\text{PoS}}, \beta_{\text{Th}} &\sim \text{Normal}(0, 0.5)\\
-	\delta_{\text{PoS}}, \delta_{\text{Th}} &\sim \text{Dirichlet}(2)\\
-	\beta_{\text{Auth}} &= z_{\text{Auth}}*\sigma_{\text{Auth}}\\
-	\beta_{\text{Dia}} &= z_{\text{Dia}}*\sigma_{\text{Dia}}\\
-	z_{\text{Auth}}, z_{\text{Dia}} &\sim \text{Normal}(0,1)\\
-	\sigma_{\text{Auth}}, \sigma_{\text{Dia}} &\sim \text{Exponential}(1)
+	\begin{align*}
+		\text{A} &\sim \text{Bernoulli}(p_i)\\
+		\text{logit}(p_i) &= \alpha + 
+		\beta_{\text{Cop}}\text{Cop}_i + 
+		\beta_{\text{Dist}}\text{Dist}_i + \beta_{\text{WO}} \text{Prec}_i \\&+
+		\beta_{\text{PoS}}\sum^{PoS_{i}-1}_{j=0}{\delta_{j_{\text{PoS}}}} + \beta_{\text{Th}}\sum^{Th_{i}-1}_{j=0}{\delta_{j_{\text{Th}}}} \\&+
+			\beta_{\text{Auth}_{i}} + \beta_{\text{Dia}_i}\\
+		\alpha &\sim \text{Normal}(0, 1)\\
+		\beta_{\text{Cop}}, \beta_{\text{Dist}}, \beta_{\text{Prec}} &\sim \text{Normal}(0, 1)\\
+		\beta_{\text{PoS}}, \beta_{\text{Th}} &\sim \text{LogNormal}(0, 1)\\
+		\delta_{\text{PoS}}, \delta_{\text{Th}} &\sim \text{Dirichlet}(2)\\
+		\beta_{\text{Auth}} &= z_{\text{Auth}}*\sigma_{\text{Auth}}\\
+		\beta_{\text{Dia}} &= \overline{\beta}_\text{Dia} + z_{\text{Dia}}*\sigma_{\text{Dia}}\\
+		\overline{\beta}_\text{Dia}, z_{\text{Auth}}, z_{\text{Dia}} &\sim \text{Normal}(0,1)\\
+		\sigma_{\text{Auth}}, \sigma_{\text{Dia}} &\sim \text{Exponential}(1)
 \end{align*}
 
 A brief note on priors:
@@ -538,13 +538,11 @@ The estimated effects are described in the following table and plot.
 \end{center}
 
 To put it into words, the data favours the idea that the Agreement and
-Predication Hierarchy holds for case attraction in Ancient Greek case
-attraction: as the target becomes more ``nominal'', the likelihood of attraction
-increases from basically neutral with participles up to highly positive.
+Predication Hierarchy has a reasonable effect over case attraction:
+as the target becomes more ``nominal'', the likelihood of attraction
+increases seemingly monotonically.
 There is still a fair amount of uncertainty on how strong the effect is,
-however, and if the major cutoff point is between Participle and Adjective or
-between Adjective and Noun.
-
+however.
 
 \section{Thematic Role of the Controller} % (fold)
 

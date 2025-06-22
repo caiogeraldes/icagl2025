@@ -26,7 +26,7 @@ tibble(
   kbl(format = "latex", booktabs = TRUE, escape = FALSE)
 sink()
 
-(a <- precis(model, pars = c("b_pos", "d_adj", "d_noun"), depth = 2))
+(a <- precis(model, pars = c("d_part", "d_adj", "d_noun"), depth = 2))
 sink("./tables/model_domain_cummulative_effects.tex")
 tibble(
   `Cummulative effect` = a@row.names,
@@ -39,9 +39,9 @@ tibble(
   mutate(
     PoS = c("Participle", "Adjective", "Noun"),
     `Cummulative effect` = c(
-      "$\\beta_{\\text{PoS}}$",
-      "$\\beta_{\\text{PoS}} + \\delta_{\\text{Adj}}$",
-      "$\\beta_{\\text{PoS}} + \\delta_{\\text{Adj}} + \\delta_{\\text{Noun}}$"
+      "$\\beta_{\\text{PoS}} * 0$",
+      "$\\beta_{\\text{PoS}} * \\delta_{\\text{Adj}}$",
+      "$\\beta_{\\text{PoS}} * (\\delta_{\\text{Adj}} + \\delta_{\\text{Noun}})$"
     )
   ) %>%
   relocate("PoS") %>%
@@ -79,7 +79,7 @@ tibble(
   kbl(format = "latex", booktabs = TRUE, escape = FALSE)
 sink()
 
-(a <- precis(model, pars = c("b_th", "d_exp", "d_agent"), depth = 2))
+(a <- precis(model, pars = c("d_recip", "d_exp", "d_agent"), depth = 2))
 sink("./tables/model_theta_cummulative_effects.tex")
 tibble(
   `Cummulative effect` = a@row.names,
@@ -92,9 +92,9 @@ tibble(
   mutate(
     Theta = c("Recipient", "Experiencer", "Agent"),
     `Cummulative effect` = c(
-      "$\\beta_{\\text{Rec}}$",
-      "$\\beta_{\\text{Rec}} + \\delta_{\\text{Exp}}$",
-      "$\\beta_{\\text{Rec}} + \\delta_{\\text{Exp}} + \\delta_{\\text{Agent}}$"
+      "$\\beta_{\\text{Th}} * 0$",
+      "$\\beta_{\\text{Th}} * \\delta_{\\text{Exp}}$",
+      "$\\beta_{\\text{Th}} * (\\delta_{\\text{Exp}} + \\delta_{\\text{Agent}})$"
     )
   ) %>%
   relocate("Theta") %>%

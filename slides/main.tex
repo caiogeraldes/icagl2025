@@ -34,6 +34,7 @@
 
 \title{Rethinking case attraction on Ancient Greek infinitive clauses}
 \author{Caio B. A. Geraldes\newline<\texttt{caio.geraldes@usp.br}>\vspace{5pt}}
+\date{June 25, 2025}
 \institute{FFLCH-USP\\\includegraphics[height=0.40cm]{logo-fapesp.png}}
 
 \setsansfont{Fira Sans}
@@ -179,11 +180,11 @@
 			\beta_{\text{Auth}_{i}} + \beta_{\text{Dia}_i}\\
 		\alpha &\sim \text{Normal}(0, 1)\\
 		\beta_{\text{Cop}}, \beta_{\text{Dist}}, \beta_{\text{Prec}} &\sim \text{Normal}(0, 1)\\
-		\beta_{\text{PoS}}, \beta_{\text{Th}} &\sim \text{Normal}(0, 0.5)\\
+		\beta_{\text{PoS}}, \beta_{\text{Th}} &\sim \text{LogNormal}(0, 1)\\
 		\delta_{\text{PoS}}, \delta_{\text{Th}} &\sim \text{Dirichlet}(2)\\
 		\beta_{\text{Auth}} &= z_{\text{Auth}}*\sigma_{\text{Auth}}\\
-		\beta_{\text{Dia}} &= z_{\text{Dia}}*\sigma_{\text{Dia}}\\
-		z_{\text{Auth}}, z_{\text{Dia}} &\sim \text{Normal}(0,1)\\
+		\beta_{\text{Dia}} &= \overline{\beta}_\text{Dia} + z_{\text{Dia}}*\sigma_{\text{Dia}}\\
+		\overline{\beta}_\text{Dia}, z_{\text{Auth}}, z_{\text{Dia}} &\sim \text{Normal}(0,1)\\
 		\sigma_{\text{Auth}}, \sigma_{\text{Dia}} &\sim \text{Exponential}(1)
 	\end{align*}
 \end{frame}
@@ -196,9 +197,9 @@
 	\toprule
 	PoS & Cummulative effect\\
 	\midrule
-	Participle & $\beta_{\text{PoS}}$\\
-	Adjective & $\beta_{\text{PoS}} + \delta_{\text{Adj}}$\\
-	Noun & $\beta_{\text{PoS}} + \delta_{\text{Adj}} + \delta_{\text{Noun}}$\\
+	Participle & $\beta_{\text{PoS}} * 0$\\
+	Adjective & $\beta_{\text{PoS}} * (\delta_{\text{Adj}})$\\
+	Noun & $\beta_{\text{PoS}} * (\delta_{\text{Adj}} + \delta_{\text{Noun}})$\\
 	\bottomrule
 	\end{tabular}
 	\end{center}
@@ -252,11 +253,11 @@
 \toprule
 Effect & mean & sd & 5.5\% & 94.5\%\\
 \midrule
-$\overline{\beta}_{\text{Dia}}$ & -0.22 & 0.86 & -1.58 & 1.15\\
-$\sigma_{\text{Dia}}$ & 1.36 & 0.78 & 0.50 & 2.78\\
-$\beta_{\text{Attic}}$ & 0.45 & 0.87 & -0.93 & 1.80\\
-$\beta_{\text{Jonic}}$ & -1.35 & 0.97 & -2.94 & 0.18 \\
-$\beta_{\text{Attic}} - \beta_{\text{Jonic}}$ & 1.80 & 0.63 & 0.78 & 2.78\\
+$\overline{\beta}_{\text{Dia}}$ & -0.49 & 0.84 & -1.78 & 0.90 \\
+$\sigma_{\text{Dia}}$ & 1.20 & 0.78 & 0.30 & 2.67 \\
+$\beta_{\text{Attic}}$ & -0.16 & 0.89 & -1.55 & 1.28 \\
+$\beta_{\text{Jonic}}$ & -1.59 & 1.01 & -3.19 & -0.02 \\
+$\beta_{\text{Attic}} - \beta_{\text{Jonic}}$ & 1.43 & 0.69 & 0.26 & 2.49 \\
 \bottomrule
 \end{tabular}
   \includegraphics[width=0.4\linewidth]{../analysis/figs/posterior_diff_dia.png}

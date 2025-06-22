@@ -1,6 +1,8 @@
 library(tidyverse)
 library(rethinking)
+library(kableExtra)
 
+source("./fix_pairs_rethinking.R")
 # Loading data
 source("./pred_a_info.R")
 dados <- read_csv("./data.csv") %>%
@@ -24,8 +26,8 @@ dat <- list(
   "Dia" = as.factor(dados$DIALECT),
   "Prec" = (dados$DIST_OBJ_PRED < 0),
   "Dist" = abs(dados$DIST_OBJ_PRED),
-  alpha_pos = rep(2, 2),
-  alpha_th = rep(2, 2)
+  alpha_pos = rep(3, 2),
+  alpha_th = rep(3, 2)
 )
 
 flist <- alist(
@@ -44,17 +46,19 @@ flist <- alist(
   # copula
   b_c ~ normal(0, 1),
   # pos
-  b_pos ~ normal(0, 0.5),
+  b_pos ~ lognormal(0, 1),
   vector[3]:delta_j_pos <<- append_row(0, delta_pos),
   simplex[2]:delta_pos ~ dirichlet(alpha_pos),
-  transpars > real[1]:d_adj <<- b_pos + delta_pos[1],
-  transpars > real[1]:d_noun <<- b_pos + delta_pos[1] + delta_pos[2],
+  transpars > real[1]:d_part <<- b_pos * 0,
+  transpars > real[1]:d_adj <<- b_pos * delta_pos[1],
+  transpars > real[1]:d_noun <<- b_pos * (delta_pos[1] + delta_pos[2]),
   # th
-  b_th ~ normal(0, 0.5),
+  b_th ~ lognormal(0, 1),
   vector[3]:delta_j_th <<- append_row(0, delta_th),
   simplex[2]:delta_th ~ dirichlet(alpha_th),
-  transpars > real[1]:d_exp <<- b_th + delta_th[1],
-  transpars > real[1]:d_agent <<- b_th + delta_th[1] + delta_th[2],
+  transpars > real[1]:d_recip <<- b_th * 0,
+  transpars > real[1]:d_exp <<- b_th * delta_th[1],
+  transpars > real[1]:d_agent <<- b_th * (delta_th[1] + delta_th[2]),
   # auth
   z_auth[Auth] ~ normal(0, 1),
   s_auth ~ exponential(1),
