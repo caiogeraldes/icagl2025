@@ -84,8 +84,11 @@
 
 \title{Rethinking case attraction on Ancient Greek infinitive clauses}
 \author{
-  Caio B. A. Geraldes\thanks{Fundação de Amparo à Pesquisa do Estado de São
-  Paulo.}
+  Caio B. A. Geraldes\thanks{
+		This research was funded by the 
+	 The São Paulo Research Foundation (Fapesp), grant number 2021/06027-4.}
+	\\\smallskip
+	Universidade de São Paulo
 	\\\smallskip
 	<\href{mailto:caio.geraldes@usp.br}{\texttt{caio.geraldes@usp.br}}>
 }
@@ -359,11 +362,11 @@ order, we can only estimate the direct effect by controlling for Word Order.
 		\beta_{\text{Auth}_{i}} + \beta_{\text{Dia}_i}\\
 	\alpha &\sim \text{Normal}(0, 1)\\
 	\beta_{\text{Cop}}, \beta_{\text{Dist}}, \beta_{\text{Prec}} &\sim \text{Normal}(0, 1)\\
-	\beta_{\text{PoS}}, \beta_{\text{Th}} &\sim \text{Normal}(0, 0.5)\\
+	\beta_{\text{PoS}}, \beta_{\text{Th}} &\sim \text{LogNormal}(0, 1)\\
 	\delta_{\text{PoS}}, \delta_{\text{Th}} &\sim \text{Dirichlet}(2)\\
-	\beta_{\text{Auth}} &= z_{\text{Auth}}*\sigma_{\text{Auth}}\\
-	\beta_{\text{Dia}} &= z_{\text{Dia}}*\sigma_{\text{Dia}}\\
-	z_{\text{Auth}}, z_{\text{Dia}} &\sim \text{Normal}(0,1)\\
+	\beta_{\text{Auth}_j} &= z_{\text{Auth}_j}*\sigma_{\text{Auth}}\\
+	\beta_{\text{Dia}_j} &= \overline{\beta}_\text{Dia} + z_{\text{Dia}_j}*\sigma_{\text{Dia}}\\
+	\overline{\beta}_\text{Dia},	z_{\text{Auth}}, z_{\text{Dia}} &\sim \text{Normal}(0,1)\\
 	\sigma_{\text{Auth}}, \sigma_{\text{Dia}} &\sim \text{Exponential}(1)
 \end{align*}
 
@@ -398,21 +401,12 @@ order, we can only estimate the direct effect by controlling for Word Order.
 	\input{../analysis/tables/model_domain_cummulative_effects.tex}
 \end{center}
 
-
-\begin{center}
-	\includegraphics[width=0.70\linewidth]{../analysis/figs/model_domain_banddelta.png}
-\end{center}
-
+\clearpage
 \paragraph{Thematic Role of the Controller} % (fold)
-
 \begin{center}
 	\input{../analysis/tables/model_theta_effects.tex}
 	\bigskip
 	\input{../analysis/tables/model_theta_cummulative_effects.tex}
-\end{center}
-
-\begin{center}
-	\includegraphics[width=0.75\linewidth]{../analysis/figs/model_theta_banddelta.png}
 \end{center}
 
 \paragraph{Dialect and Authorship} % (fold)
@@ -423,16 +417,19 @@ order, we can only estimate the direct effect by controlling for Word Order.
 
 \begin{figure}[!h]
 \centering
-  \includegraphics[width=0.5\linewidth]{../analysis/figs/posterior_diff_dia.png}
+  \includegraphics[width=0.45\linewidth]{../analysis/figs/posterior_diff_dia.png}
 	\caption{Posterior distribution of the difference between
 		$\beta_\text{Attic}$ and $\beta_\text{Jonic}$ with the 89\%
 	Highest Posterior Density Interval.}
 \end{figure}
 
 \begin{center}
-	\includegraphics[width=0.75\linewidth]{../analysis/figs/precis_author.png}
+	\includegraphics[width=0.70\linewidth]{../analysis/figs/precis_author.png}
 \end{center}
 
+\begin{center}
+	\includegraphics[width=0.70\linewidth]{../analysis/figs/dens_authors.png}
+\end{center}
 
 \renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
 \printbibliography%
