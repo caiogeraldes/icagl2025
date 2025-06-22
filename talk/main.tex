@@ -175,16 +175,16 @@ The sentences were extracted from the Diorisis Corpus
 querying tool, Diorisis Search (\cite{DiorisisSearch}).
 Although comprehensive, the selection is by no means exhaustive.
 
-Each sentence has been annotated for values of interest, including authorship,
-literary genre, dialect as well as class of matrix and infinitive verb, class of
-controller and target, distance between constituents, etc.
-Parts of the annotation processes were conducted programmatically and later
-checked manually.
-
-Every model used in this work was processed using R (\cite{R}), the packages
-\texttt{tidyverse} (\cite{tidyverse}), \texttt{dagitty} (\cite{dagitty}),
-\texttt{ggdag} (\cite{ggdag}), and \texttt{rethinking} (\cite{McElreath2020}),
-as well as the software Stan~(\cite{StanReferenceManual,StanUserGuide}).
+% Each sentence has been annotated for values of interest, including authorship,
+% literary genre, dialect as well as class of matrix and infinitive verb, class of
+% controller and target, distance between constituents, etc.
+% Parts of the annotation processes were conducted programmatically and later
+% checked manually.
+%
+% Every model used in this work was processed using R (\cite{R}), the packages
+% \texttt{tidyverse} (\cite{tidyverse}), \texttt{dagitty} (\cite{dagitty}),
+% \texttt{ggdag} (\cite{ggdag}), and \texttt{rethinking} (\cite{McElreath2020}),
+% as well as the software Stan~(\cite{StanReferenceManual,StanUserGuide}).
 
 % chapter The data (end)
 
@@ -215,13 +215,15 @@ criteria for canonical agreement in the same work of \textcite[pp.\
 If this assessment is sound, it is expected that attraction and
 non\hyp{}attraction behave as competing agreement resolutions, the former being
 less canonical and thus more likely to be conditioned.
-Conditions concerning the semantic and pragmatic properties of the controller,
-its precedence in relation to the target and the class of predication (i.e.:
-class of the domain) have been identified by Corbett.
-Although properties of the target were not shown to be favouring any resolution
-in agreement mismatches in Corbett's survey, case attraction might be one
-example of it, and I will hypothesize that properties of targets are competing
-causes of non\hyp{}canonical resolutions.
+Features of Controller, Domain and Target are the main conditioners in this
+framework.
+% Conditions concerning the semantic and pragmatic properties of the controller,
+% its precedence in relation to the target and the class of predication (i.e.:
+% class of the domain) have been identified by Corbett.
+% Although properties of the target were not shown to be favouring any resolution
+% in agreement mismatches in Corbett's survey, case attraction might be one
+% example of it, and I will hypothesize that properties of targets are competing
+% causes of non\hyp{}canonical resolutions.
 A model of agreement in this framework may be represented as a direct acyclic
 graph, in which \textbf{A}ttraction ($\simeq$ Agreement) is caused by features
 of the \textbf{C}ontroller, \textbf{D}omain and \textbf{T}arget:
@@ -237,18 +239,17 @@ function, as Ancient Greek does not overtly marks focuses or topics in the
 morphosyntax, at least not dependably).
 When an observed factor is included in the model, we split the cluster into
 two nodes: the one of observed factor and that containing rest of unobserved features.
-
-The three factors previously shown to correlate to case attraction represent
-each of these nodes:
-\begin{compactitem}
-	\item Copular infinitives imply a different domain of agreement, as they
-		select different predication classes;
-	\item Main verbs with semantic modality imply a different type of controller,
-		as they have higher subjecthood;
-	\item Word order and distance imply different status for the target, as
-		targets more to the left of the sentence are both structurally closer to the
-		controller and have a higher communicative function.
-\end{compactitem}
+Luckily for us, the three factors previously shown to correlate to case
+attraction represent each of these nodes
+% \begin{compactitem}
+% 	\item Copular infinitives imply a different domain of agreement, as they
+% 		select different predication classes;
+% 	\item Main verbs with semantic modality imply a different type of controller,
+% 		as they have higher subjecthood;
+% 	\item Word order and distance imply different status for the target, as
+% 		targets more to the left of the sentence are both structurally closer to the
+% 		controller and have a higher communicative function.
+% \end{compactitem}
 
 % chapter Nature of attraction (end)
 

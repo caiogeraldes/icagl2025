@@ -18,6 +18,14 @@
 \usepackage{multirow}
 \usepackage{pgfplots}
 \usepackage{paralist}
+\usepackage[
+  backend=biber,
+  uniquename=init,
+  giveninits,
+  dashed=true,
+  style=authoryear-comp
+  ]{biblatex}
+\addbibresource{./biblio.bib}
 
 \usetheme[
 	progressbar=foot,
@@ -166,6 +174,17 @@
 	\begin{center}
 	\includegraphics[width=0.60\linewidth]{../analysis/figs/dag_d.png}
 	\end{center}
+
+	\vfill
+
+
+	\footnotesize
+
+	\paragraph{Tooling:} R (\cite{R}), the packages
+	\texttt{tidyverse} (\cite{tidyverse}), \texttt{dagitty} (\cite{dagitty}),
+	\texttt{ggdag} (\cite{ggdag}), and \texttt{rethinking} (\cite{McElreath2020}),
+	as well as the software Stan~(\cite{StanReferenceManual,StanUserGuide}).
+
 \end{frame}
 
 \begin{frame}
