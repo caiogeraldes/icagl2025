@@ -4,10 +4,8 @@ library(kableExtra)
 
 source("./fix_pairs_rethinking.R")
 # Loading data
-source("./pred_a_info.R")
 dados <- read_csv("./data.csv") %>%
-  mutate(pos_pred_a = factor(pred_a_pos, levels = c("A", "N", "P")),
-    pred_a = pred_a,
+  mutate(pos_pred_a = factor(pos_pred_a, levels = c("A", "N", "P")),
     OBJ_TH = factor(
       ifelse(
         VM_LEMMA == "δοκέω",
